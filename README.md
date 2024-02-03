@@ -34,9 +34,15 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 <br>
 
 # Usage example
-> This section is reffering to linux users.
-## set privileges
-Firstly you need to fix the scripts privileges
+## This section is reffering to linux users.
+### set privileges
+Firstly you need to fix the scripts permission
+```sh
+chmod +x lpi_linux.py
+```
+
+### Run the script
+After fixing the permissions of the file we can run the script with the following commands:
 ```sh
 ./lpi_linux.py
 # or
