@@ -2,6 +2,13 @@
 
 The Linux Essentials certificate validates a demonstrated understanding of the following: FOSS, the various communities, and licenses. Knowledge of open source applications in the workplace as they relate to closed source equivalents.
 
+<p align="center">
+  <img src="https://www.lpi.org/wp-content/uploads/2023/04/Essentials-Linux_250_0.png" alt="alt text">
+</p>
+
+This code lets you practice for LPI 010-160 (Linux Essentials) with real questions from the exam.
+
+<hr>
 
 # Installation
 
@@ -100,6 +107,11 @@ Options:
 ### Why?
 This is happening because the EXE file is the compiled version of the python code and is not registered in any way, i.e. it does not have a certificate of sort nor vendor information thus making it suspicios,
 If you feel concerned running the script that way, feel free to download the python script that is meant for Linux users and run it that way.
+
+<hr>
+<p align="center">
+  <img src="https://pakhotin.org/wp-content/uploads/2023/07/53113-106400-Linux-xl-1024x576.jpg" alt="alt text">
+</p>
 
 ## Contact
 
