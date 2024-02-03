@@ -8,7 +8,10 @@ The Linux Essentials certificate is a great way to show employers that you have 
 ### wget
 ```sh
 # Install via wget
-wget -O lpi_linux.py https://github.com/Noam-Alum/lpi_010_160_exam/blob/main/lpi_linux.py
+wget -O lpi_010_160_exam.zip https://github.com/Noam-Alum/lpi_010_160_exam.git
+unzip lpi_010_160_exam.zip
+mv lpi_010_160_exam/lpi_linux.py .
+rm -rf lpi_010_160_exam lpi_010_160_exam.zip
 ```
 ### git clone
 ```sh
@@ -22,6 +25,7 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 ```sh
 # Install via wget
 wget -O lpi_010_160_exam.zip https://github.com/Noam-Alum/lpi_010_160_exam.git
+expand lpi_010_160_exam.zip -f:*
 move lpi_010_160_exam\lpi_win.exe .
 rmdir /s /q lpi_010_160_exam lpi_010_160_exam.zip
 
