@@ -7,25 +7,14 @@ LPI 010-160 practice exam using questions from dumps
 ## OS X & Linux:
 
 ```sh
-# Install zipped project
-wget -O make_backup.zip https://codeload.github.com/Noam-Alum/make_backup/zip/refs/heads/main
-
-# unzip
-unzip make_backup.zip
-
-# rsync files
-rsync -av make_backup-main/etc/ /etc/
-rsync -av make_backup-main/var/ /var/
-
-# remove directory
-rm -rf make_backup-main make_backup.zip
-
-# handle services
-sudo systemctl restart udev rsyslog
-sudo systemctl daemon-reload
-systemctl enable make_backup.service
-systemctl start make_backup.service
+# Install via wget
+wget -O lpi_linux.py https://github.com/Noam-Alum/lpi_010_160_exam/blob/main/lpi_linux.py
 ```
+```sh
+# Install via git clone
+git clone https://github.com/Noam-Alum/lpi_010_160_exam/
+```
+
 >Make sure to change /etc/systemd/system/make_backup.service user and group to youe likings
 >```sh
 >User=changeme
