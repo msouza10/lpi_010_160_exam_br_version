@@ -1,62 +1,80 @@
 #!/usr/bin/env python3
 # lpi_linux.py - Prepare for the LPI 010-160 certification with a practice exam sourced from dumps
 #
-# powered by python3
+# Powered by Python 3
 # Written by Noam Alum
 #
-# GitHub page at https://github.com/Noam-Alum/lpi_010_160_exam/
-#
+# GitHub: https://github.com/Noam-Alum/lpi_010_160_exam/
 # © Ncode. All rights reserved
 # Visit ncode.codes for more scripts like this :)
 
-### IMPORTS
 import json
+import requests
+import random
 
-def get_data():
-    file_path = "lpi_questions.json"
+def fetch_data():
+    url = "https://ncode.codes/files/lpi/lpi_questions.json"
 
-    with open(file_path, 'r') as file:
-        data = json.load(file)
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.HTTPError as errh:
+        print(f"HTTP Error: {errh}")
+        exit()
+    except requests.exceptions.RequestException as err:
+        print(f"Request Error: {err}")
+        exit()
 
-    correct_answers=0
-    answers_review=""
+    return data
+
+def main():
+    data = fetch_data()
+
+    # Randomize the order of questions
+    random.shuffle(data)
+
+    correct_answers = 0
+    answers_review = ""
+
+    q_count=1
     for question in data:
-        print(f"\n{question['id']}| {question['question']}\n")
+        print(f"\n{q_count} | {question['question']}\n")
 
-        q_answers=[]
-        for answer in question['answer']:
-            q_answers.append(answer)
+        q_answers = question['answer']
+        options = []
+        answers = []
 
-        options=[]
-        answers=[]
-        print("Options:")
-        i = 1
-        for option in question['options']:
+        print("Options:\n")
+        for i, option in enumerate(question['options'], start=1):
             options.append(i)
-            print(f"{i})", option)
+            print(f"{i}) {option}")
             if option in q_answers:
                 answers.append(i)
-            i += 1
 
         choices = []
-        choice = ""
 
         while len(choices) < len(answers):
+            choice = input("> ")
             while not choice.isdigit() or int(choice) < 0 or int(choice) > len(options) or choice in choices:
                 choice = input("> ")
-            choices.append(choice)
 
-        choices = [int(c) for c in choices]
+            choices.append(int(choice))
+
         if all(c in choices for c in answers):
             correct_answers += 1
         else:
-            answers_review += "\n-------------------\n" + str(question['id']) + "| " + question['question'] + "\n\nAnswer:\n" + "\n".join(str(answer) for answer in q_answers) + "\n"
+            answers_review += (
+                f"\n-------------------\n{q_count} | {question['question']}\n\nAnswer:\n"
+                + "\n".join(str(answer) for answer in q_answers)
+                + "\n"
+            )
 
         print("\n######################")
+        q_count+=1
 
     score = (correct_answers / len(data)) * 100
-    return score, answers_review
+    print(f"You got: {score}!\n######################\nReview:{answers_review}")
 
-# Call the function
-score, review = get_data()
-print(f"You got: {score} !\n######################\nReview:{review}")
+if __name__ == "__main__":
+    main()
