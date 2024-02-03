@@ -34,58 +34,52 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 <br>
 
 # Usage example
-> This section is reffering to linux usage.
-## set count
-Firstly you need to select a file to count block device entries
+> This section is reffering to linux users.
+## set privileges
+Firstly you need to fix the scripts privileges
 ```sh
-count_location=[/var/test.txt];
+./lpi_linux.py
+# or
+/usr/bin/python3 lpi_linux.py
 ```
-**This needs to be the full path to a file !** (/path/to/file.txt)
+**You must have python3 installed!**
 
-Then you should set count of how many times a block device entries cause a backup:
+Then you should get the first question of the bunch, e.g. :
 ```sh
-bd_count=[5];
+1| What are the differences between hard disk drives and solid state disks? (Choose two.)
+
+Options:
+
+1) Hard disks can fail due to physical damage, while solid state disks cannot fail.
+2) Solid state disks can store many times as much data as hard disk drives.
+3) /dev/sda is a hard disk device while /dev/ssda is a solid state disk.
+4) Solid state disks provide faster access to stored data than hard disks.
+5) Hard disks have a motor and moving parts, solid state disks do not.
+>
 ```
-**This settings cannot be 0 and lower!**
+<hr>
 
-## set backup directory
-By default make backup backups to the /tmp directory as a fallback to the main backups directory, to choose the backup directory we need to edit the /etc/make_backup/Make_Backup.conf configuration file.
+## This section is reffering to windows users.
 
+### Run the exe file
+When running the exe file you should get something along the lines of ```Windows will detect this as a "threat"``` in that case:
+1. Press on "More info"
+2. Press on "Run anyway"
+And you should get the following terminal with the first question of the bunch, e.g. :
 ```sh
-parent_directory=[/change/this/to/backkups_dir];
-```
-Swap /change/this/to/backkups_dir to the actual path to your backups directory *with out the / at the end!*
+1| What are the differences between hard disk drives and solid state disks? (Choose two.)
 
-## choose items to backup
-We can add the files and direcotories we want to backup in between this lines:
-```sh
-> start items to backup <
-/backup/this/file.txt
-/backup/this/direcotory/
-> end items to backup <
-```
-make sure that direcotories **ends with /** and files **dont!**
+Options:
 
-## control amount of backups
-To control how many backups remain in the choosen backups directory we first need to check if its enables.
-```sh
-## remove old backups
-# yes | no
-rm_old_backups=[yes];
+1) Hard disks can fail due to physical damage, while solid state disks cannot fail.
+2) Solid state disks can store many times as much data as hard disk drives.
+3) /dev/sda is a hard disk device while /dev/ssda is a solid state disk.
+4) Solid state disks provide faster access to stored data than hard disks.
+5) Hard disks have a motor and moving parts, solid state disks do not.
+>
 ```
-and make sure its set as ```yes```.
-
-We can change this settings to control how many backups remain in the choosen backups directory like so:
-```sh
-backup_in_c_month=[14];
-backup_in_month=[1];
-month_in_c_year=[12];
-month_in_year=[1];
-```
-* backup_in_c_month = the amount of backups in the current month directory.
-* backup_in_month = the amount of backups in past months.
-* month_in_c_year = the amount of months to leave in past year.
-* month_in_year = the amount of months to leave in past year.
+> This is happening because the EXE file is the compiled version of the python code and is not registered in any way, i.e. it does not have a certificate of sort nor vendor information making it suspicios.
+> If you feel concerned running the script that way, feel free to download the python script that is meant for Linux users and run it that way.
 
 ## Contact
 
