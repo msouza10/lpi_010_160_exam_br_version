@@ -45,8 +45,11 @@ def main():
         options = []
         answers = []
 
+        # Randomize the order of options
+        randomized_options = random.sample(question['options'], len(question['options']))
+
         print("Options:\n")
-        for i, option in enumerate(question['options'], start=1):
+        for i, option in enumerate(randomized_options, start=1):
             options.append(i)
             print(f"{i}) {option}")
             if option in q_answers:
