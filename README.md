@@ -1,6 +1,6 @@
 # LPI 010-160 practice exam
 
-LPI 010-160 practice exam using questions from dumps
+The Linux Essentials certificate is a great way to show employers that you have the foundational skills required for your next job or promotion.
 
 # Installation
 
