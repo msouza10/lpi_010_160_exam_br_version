@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# lpi_linux.py - Prepare for the LPI 010-160 certification with a practice exam sourced from dumps
+#
+# powered by python3
+# Written by Noam Alum
+#
+# GitHub page at https://github.com/Noam-Alum/lpi_010_160_exam/
+#
+# © Ncode. All rights reserved
+# Visit ncode.codes for more scripts like this :)
 
 ### IMPORTS
 import json
