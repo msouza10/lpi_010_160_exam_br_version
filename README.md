@@ -34,7 +34,7 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 <br>
 
 # Usage example
-> This section is reffering to the */etc/make_backup/Make_Backup.conf* file.
+> This section is reffering to linux usage.
 ## set count
 Firstly you need to select a file to count block device entries
 ```sh
