@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "question": "What are the differences between hard disk drives and solid state disks? (Choose two.) change",
+    "question": "What are the differences between hard disk drives and solid state disks? (Choose two.)",
     "options": [
       "Hard disks can fail due to physical damage, while solid state disks cannot fail.",
       "Solid state disks can store many times as much data as hard disk drives.",
