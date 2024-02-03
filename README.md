@@ -5,25 +5,22 @@ LPI 010-160 practice exam using questions from dumps
 # Installation
 
 ## OS X & Linux:
-
+### wget
 ```sh
 # Install via wget
 wget -O lpi_linux.py https://github.com/Noam-Alum/lpi_010_160_exam/blob/main/lpi_linux.py
 ```
+### git clone
 ```sh
 # Install via git clone
-git clone https://github.com/Noam-Alum/lpi_010_160_exam/
+git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git && mv lpi_010_160_exam/lpi_linux.py . && rm -rf lpi_010_160_exam
 ```
 
->Make sure to change /etc/systemd/system/make_backup.service user and group to youe likings
->```sh
->User=changeme
->Group=changeme
 <br>
 <hr>
 <br>
 
-# Usage example && Development setup
+# Usage example
 > This section is reffering to the */etc/make_backup/Make_Backup.conf* file.
 ## set count
 Firstly you need to select a file to count block device entries
