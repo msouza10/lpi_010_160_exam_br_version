@@ -48,7 +48,9 @@ After fixing the permissions of the file we can run the script with the followin
 # or
 /usr/bin/python3 lpi_linux.py
 ```
-**You must have python3 installed!**
+> You must have python3 installed!**
+
+<br>
 
 Then you should get the first question of the bunch, e.g. :
 ```sh
