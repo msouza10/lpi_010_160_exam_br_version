@@ -16,6 +16,18 @@ wget -O lpi_linux.py https://github.com/Noam-Alum/lpi_010_160_exam/blob/main/lpi
 git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git && mv lpi_010_160_exam/lpi_linux.py . && rm -rf lpi_010_160_exam
 ```
 
+## Windows:
+### wget
+```sh
+# Install via wget
+wget -O lpi_linux.py https://github.com/Noam-Alum/lpi_010_160_exam/blob/main/lpi_win.exe
+```
+### git clone
+```sh
+# Install via git clone
+git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git && move lpi_010_160_exam\lpi_linux.py . && rmdir /s /q lpi_010_160_exam
+```
+
 <br>
 <hr>
 <br>
