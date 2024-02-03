@@ -31,7 +31,6 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 
 <br>
 <hr>
-<br>
 
 # Usage example
 ## This section is reffering to linux users.
@@ -48,7 +47,7 @@ After fixing the permissions of the file we can run the script with the followin
 # or
 /usr/bin/python3 lpi_linux.py
 ```
-> You must have python3 installed!**
+> You must have python3 installed!
 
 <br>
 
