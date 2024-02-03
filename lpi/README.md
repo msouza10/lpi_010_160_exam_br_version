@@ -1,1 +1,1 @@
-# Change kpi_questions.json to modify/add to the practice exam
+# Modify lpi_questions.json to modify/add to the practice exam
