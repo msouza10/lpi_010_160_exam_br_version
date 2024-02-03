@@ -13,7 +13,7 @@ import requests
 import random
 
 def fetch_data():
-    url = "https://ncode.codes/files/lpi/lpi_questions.json"
+    url = "https://raw.githubusercontent.com/Noam-Alum/lpi_010_160_exam/main/lpi/lpi_questions.json?token=GHSAT0AAAAAACMNRADXQYINN6Z2CGGQVZF6ZN6JBPQ"
 
     try:
         response = requests.get(url)
