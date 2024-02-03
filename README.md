@@ -86,7 +86,7 @@ Options:
 >
 ```
 ### Why?
-This is happening because the EXE file is the compiled version of the python code and is not registered in any way, i.e. it does not have a certificate of sort nor vendor information making it suspicios.
+This is happening because the EXE file is the compiled version of the python code and is not registered in any way, i.e. it does not have a certificate of sort nor vendor information thus making it suspicios,
 If you feel concerned running the script that way, feel free to download the python script that is meant for Linux users and run it that way.
 
 ## Contact
