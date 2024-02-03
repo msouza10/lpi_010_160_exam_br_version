@@ -24,6 +24,7 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 wget -O lpi_010_160_exam.zip https://github.com/Noam-Alum/lpi_010_160_exam.git
 move lpi_010_160_exam\lpi_win.exe .
 rmdir /s /q lpi_010_160_exam lpi_010_160_exam.zip
+
 ```
 ### git clone
 ```sh
