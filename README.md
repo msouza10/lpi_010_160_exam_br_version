@@ -1,6 +1,7 @@
 # LPI 010-160 practice exam
 
-The Linux Essentials certificate is a great way to show employers that you have the foundational skills required for your next job or promotion.
+The Linux Essentials certificate validates a demonstrated understanding of the following: FOSS, the various communities, and licenses. Knowledge of open source applications in the workplace as they relate to closed source equivalents.
+
 
 # Installation
 
