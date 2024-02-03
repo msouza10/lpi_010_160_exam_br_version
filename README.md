@@ -25,9 +25,10 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 ```sh
 # Install via wget
 wget -O lpi_010_160_exam.zip https://codeload.github.com/Noam-Alum/lpi_010_160_exam/zip/refs/heads/main
-expand lpi_010_160_exam.zip -f:*
-move lpi_010_160_exam-main\lpi_win.exe .
-rmdir /s /q lpi_010_160_exam-main lpi_010_160_exam.zip
+Expand-Archive -Path 'lpi_010_160_exam.zip' -DestinationPath '.'
+Move-Item -Path 'lpi_010_160_exam-main\lpi_win.exe' -Destination '.'
+Remove-Item -Path 'lpi_010_160_exam-main' -Recurse -Force
+Remove-Item -Path 'lpi_010_160_exam.zip' -Force
 
 ```
 ### git clone
