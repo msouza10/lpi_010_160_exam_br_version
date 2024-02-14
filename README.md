@@ -83,30 +83,6 @@ Options:
 5) Hard disks have a motor and moving parts, solid state disks do not.
 >
 ```
-<hr>
-
-## This section is reffering to windows users.
-
-### Run the exe file
-When running the exe file you should get something along the lines of ```Windows will detect this as a "threat"``` in that case:
-1. Press on "More info"
-2. Press on "Run anyway"
-And you should get the following terminal with the first question of the bunch, e.g. :
-```sh
-1| What are the differences between hard disk drives and solid state disks? (Choose two.)
-
-Options:
-
-1) Hard disks can fail due to physical damage, while solid state disks cannot fail.
-2) Solid state disks can store many times as much data as hard disk drives.
-3) /dev/sda is a hard disk device while /dev/ssda is a solid state disk.
-4) Solid state disks provide faster access to stored data than hard disks.
-5) Hard disks have a motor and moving parts, solid state disks do not.
->
-```
-### Why?
-This is happening because the EXE file is the compiled version of the python code and is not registered in any way, i.e. it does not have a certificate of sort nor vendor information thus making it suspicios,
-If you feel concerned running the script that way, feel free to download the python script that is meant for Linux users and run it that way.
 
 <hr>
 <p align="center">
