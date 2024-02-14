@@ -115,4 +115,4 @@ If you feel concerned running the script that way, feel free to download the pyt
 
 ## Contact
 
-Noam Alum – [Website](https://ncode.codes) – nnoam.alum@gamil.com
+Noam Alum – [Website](https://alum.sh) – nnoam.alum@gamil.com
