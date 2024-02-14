@@ -4,16 +4,18 @@
 # Powered by Python 3
 # Written by Noam Alum
 #
+# Documentation: https://alum.sh/assets/Linux/LPI%20010-160%20exam.html
 # GitHub: https://github.com/Noam-Alum/lpi_010_160_exam/
-# © Ncode. All rights reserved
-# Visit ncode.codes for more scripts like this :)
+#
+# © Noam Alum. All rights reserved
+# Visit alum.sh for more scripts like this :)
 
 import json
 import requests
 import random
 
 def fetch_data():
-    url = "https://ncode.codes/files/lpi/lpi_questions.json"
+    url = "https://alum.sh/files/lpi/lpi_questions.json"
 
     try:
         response = requests.get(url)
