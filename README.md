@@ -34,7 +34,7 @@ git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/l
 # Install via wget
 wget -O lpi_010_160_exam.zip https://codeload.github.com/Noam-Alum/lpi_010_160_exam/zip/refs/heads/main
 Expand-Archive -Path 'lpi_010_160_exam.zip' -DestinationPath '.'
-Move-Item -Path 'lpi_010_160_exam-main\lpi_win.exe' -Destination '.'
+Move-Item -Path 'lpi_010_160_exam-main\lpi.py' -Destination '.'
 Remove-Item -Path 'lpi_010_160_exam-main' -Recurse -Force
 Remove-Item -Path 'lpi_010_160_exam.zip' -Force
 
@@ -43,7 +43,7 @@ Remove-Item -Path 'lpi_010_160_exam.zip' -Force
 ```sh
 # Install via git clone
 git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git
-move lpi_010_160_exam\lpi_win.exe .
+move lpi_010_160_exam\lpi.py .
 rmdir /s /q lpi_010_160_exam
 
 ```
