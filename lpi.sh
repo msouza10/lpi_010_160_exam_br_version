@@ -28,7 +28,7 @@ readonly INFO_BULLET=" <biw>{{ B-arrow }}</biw>"
 
 
 # | Fetch utils.sh
-source <(curl -Ls "https://raw.githubusercontent.com/Noam-Alum/utils.sh/main/utils-min.sh")
+source <(curl -Ls "https://raw.githubusercontent.com/Noam-Alum/utils.sh/main/utils.sh")
 
 # | Functions
 function fail {
@@ -43,40 +43,6 @@ function fail {
   fi
 
   exit "$ERR_CODE"
-}
-
-function gen_random {
-  test -z "$1" && local GR_OPT="all" || local GR_OPT="$1"
-  test -z "$2" && local GR_LEN="12" || local GR_LEN="$2"
-
-  case $GR_OPT in
-    all)
-      local CHARSET="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz,'\"!@#$%^&*()-_=+|[]{};:/?.>"
-      ;;
-    str)
-      local CHARSET="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-      ;;
-    int)
-      local CHARSET="0123456789"
-      ;;
-    *)
-      fail 3 ":\nError while using \"$FUNCNAME\" function, not a valid option ($GR_OPT), refer to \"https://docs.alum.sh/utils.sh/functions/gen_random.html\" for more information."
-      ;;
-  esac
-  readonly CHARSET
-
-  if [ -z "${GR_LEN//[0-9]}" ]; then
-    local RES="$(tr -dc "$CHARSET" < /dev/urandom | head -c "$GR_LEN")"
-  else
-     fail 3 ":\nError while using \"$FUNCNAME\" function, length not an int ($GR_LEN), refer to \"https://docs.alum.sh/utils.sh/functions/gen_random.html\" for more information."
-  fi
-
-  if [ ! -z "$RES" ]; then
-          echo "$RES"
-          return 0
-  else
-          fail 4 ":\nUnknown error while using \"$FUNCNAME\" function, refer to \"https://docs.alum.sh/utils.sh/functions/gen_random.html\" for more information."
-  fi
 }
 
 function get_random_function_id {
