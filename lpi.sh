@@ -165,7 +165,7 @@ do
     xecho "  $SUCCESS_BULLET <biw>Nice you got that right</biw> <big>{{ E-success }}</big>\n\n"
     let LPI_CORRECT_ANSWERS++;
   else
-    xecho "  $FAIL_BULLET <biw>Wrong! (current answer is \"${LPI_ANSWERS[@]}\")</biw> <bir>{{ E-fail }}</bir>\n\n"
+    xecho "  $FAIL_BULLET <biw>Wrong! (current answer is \"${LPI_ANSWERS[*]}\")</biw> <bir>{{ E-fail }}</bir>\n\n"
   fi
 
   let QUESTION_INDEX++;
