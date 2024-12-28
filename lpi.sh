@@ -4,7 +4,7 @@
 #
 # | Author: Noam Alum
 # | Created: Thu 19 Dec 2024 12:36:22 IST
-# | Last modified: Sat 28 Dec 2024 12:40:17 IST
+# | Last modified: Sat 28 Dec 2024 12:52:14 IST
 # | Description: This file contains Bash script that lets you practice for the LPI practice exam.
 #
 
@@ -52,14 +52,15 @@ function get_random_function_id {
 
   while [ -z $RES ] && [ $MAX_TTL -lt 150 ]
   do
-    local GEN_RADOM_RESPONSE=$(gen_random int $(tr -cd '0-9' <<< "$MAX" | wc -c))
+    local GEN_RADOM_RESPONSE=$(gen_random int $(wc -c <<< "$MAX"))
+    GEN_RADOM_RESPONSE=${GEN_RADOM_RESPONSE##0}
     if [[ $GEN_RADOM_RESPONSE -le $MAX && ! " $GEN_RADOM_RESPONSE " =~ " ${ASKED_QUESTIONS[@]} " ]]; then
       RES=$GEN_RADOM_RESPONSE
     fi
     let MAX_TTL--;
   done
 
-  echo "${RES##0}"
+  echo "$RES"
 }
 
 # | Set environment
