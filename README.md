@@ -6,32 +6,32 @@ The Linux Essentials certificate validates a demonstrated understanding of the f
   <img src="https://www.lpi.org/wp-content/uploads/2023/04/Essentials-Linux_250_0.png" alt="alt text">
 </p>
 
-This bash script lets you practice for LPI 010-160 (Linux Essentials) with real questions from the exam.
+This bash script/[webpage](https://noam-alum.github.io/lpi_010_160_exam/) lets you practice for LPI 010-160 (Linux Essentials) with real questions from the exam.
 
 <hr>
 
->[!NOTE]
-> **You can take the exam on the web [here](https://noam-alum.github.io/lpi_010_160_exam/)!**
+# Take the exam online
+
+You can take the exam online [here](https://noam-alum.github.io/lpi_010_160_exam/).
+
+![Online test](https://noam-alum.github.io/lpi_010_160_exam/hero.webp)
 
 # Installation
 
 ## Linux:
 ### wget
-```sh
-# Install via wget
+```bash
 wget -O lpi_010_160_exam.zip https://codeload.github.com/Noam-Alum/lpi_010_160_exam/zip/refs/heads/main
 unzip lpi_010_160_exam.zip
 cd lpi_010_160_exam-main/
 chmod +x lpi.sh
 ```
 ### git clone
-```sh
-# Install via git clone
+```bash
 git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git
 cd lpi_010_160_exam/
 chmod +x lpi.sh
 ```
-<hr>
 
 ## Windows:
 
@@ -40,8 +40,7 @@ chmod +x lpi.sh
 I tested this with [Git bash](https://git-scm.com/downloads), and it works well, first you would have to install **Git bash** on your computer, then you'd have to install [jq](https://github.com/jqlang/jq/releases) for windows and put the exe file in a folder so it can to be included in the $PATH variable, e.g. `[GIT BASH FOLDER]\mingw64\bin` (Usually `C:\Program Files\Git`), finally you can run the script just make sure its has the execute bit on.
 
 ### git clone
-```sh
-# In Git bash
+```bash
 git clone --single-branch --branch main --depth 1 https://github.com/Noam-Alum/lpi_010_160_exam.git
 cd lpi_010_160_exam/
 chmod +x lpi.sh
@@ -52,10 +51,10 @@ chmod +x lpi.sh
 <br>
 <hr>
 
-# Usage example
+# Usage
 
 You can execute the script by simply running:
-```sh
+```bash
 ./lpi.sh
 ```
 > You must have **jq** installed!
@@ -63,7 +62,7 @@ You can execute the script by simply running:
 <br>
 
 Then you should get the first question of the bunch, e.g. :
-```sh
+```
 noam ◈ noam ⊛ lpi_010_160_exam ⊛ ❯❯ ./lpi.sh 
 
 
@@ -96,8 +95,3 @@ LPI practice exam:
 
    ➣ Answer number 1 (1 - 5):
 ```
-
-<hr>
-<p align="center">
-  <img src="https://pakhotin.org/wp-content/uploads/2023/07/53113-106400-Linux-xl-1024x576.jpg" alt="alt text">
-</p>
