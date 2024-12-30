@@ -10,7 +10,7 @@ This bash script lets you practice for LPI 010-160 (Linux Essentials) with real 
 
 <hr>
 
->![NOTE]
+>[!NOTE]
 > **You can take the exam on the web [here](https://noam-alum.github.io/lpi_010_160_exam/)!**
 
 # Installation
