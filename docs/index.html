@@ -136,286 +136,203 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-
-        #navigation-buttons {
-            margin-top: 20px;
-        }
-
-        #next-button {
-            background-color: #4caf50;
-        }
-
-        /* Styling for failed questions */
-        .failed-question {
-            background-color: #fce4e4;
-            padding: 15px;
-            border: 1px solid #f44336;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .failed-question h4 {
-            margin: 0;
-            color: #f44336;
-        }
-
-        .failed-question p {
-            font-weight: bold;
-            color: #f44336;
-        }
-
-        .failed-question ul {
-            padding-left: 20px;
-            list-style-type: disc;
-        }
     </style>
 </head>
 <body>
-<h1><a style="text-decoration: none;color: inherit" href="https://github.com/Noam-Alum/lpi_010_160_exam">LPI Practice Exam</a></h1>
-<p>By Noam Alum</p>
-<div id="question-container" class="question-container"></div>
-<div id="results-container" class="results-container"></div>
-<button id="end-test-button">End Test</button>
-<button id="retry-button">Retry Test</button>
-<div id="navigation-buttons">
-    <button id="next-button" disabled>Next</button>
-</div>
-<button id="change-url-button">Change Questions URL</button>
-<input type="text" id="url-input" value="https://raw.githubusercontent.com/Noam-Alum/lpi_010_160_exam/refs/heads/main/lpi/lpi_questions.json" placeholder="Enter new URL" />
+    <h1><a style="text-decoration: none;color: inherit" href="https://github.com/Noam-Alum/lpi_010_160_exam">LPI Practice Exam</a></h1>
+    <p>By Noam Alum</p>
+    <div id="question-container" class="question-container"></div>
+    <div id="results-container" class="results-container"></div>
+    <button id="end-test-button">End Test</button>
+    <div id="results" class="results"></div>
+    <button id="retry-button">Retry Test</button>
+    <button id="change-url-button">Change Questions URL</button>
+    <input type="text" id="url-input" value="https://raw.githubusercontent.com/Noam-Alum/lpi_010_160_exam/refs/heads/main/lpi/lpi_questions.json" placeholder="Enter new URL" />
 
-<script>
-    // Shuffle function for randomizing arrays
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-        }
-    }
+    <script>
+        // Default URL
+        let questionsUrl = "https://raw.githubusercontent.com/Noam-Alum/lpi_010_160_exam/refs/heads/main/lpi/lpi_questions.json";
 
-    // Default URL
-    let questionsUrl = "https://raw.githubusercontent.com/Noam-Alum/lpi_010_160_exam/refs/heads/main/lpi/lpi_questions.json";
-
-    // Load questions from the given URL
-    async function fetchQuestions(url) {
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            alert("Failed to load questions. Please try again later.");
-            return [];
-        }
-    }
-
-    // Global variables for the exam logic
-    let correctAnswers = 0;
-    let askedQuestions = [];
-    let totalQuestions = 0;
-    let LPI_QUESTIONS_DATA = [];
-    let currentQuestionIndex = -1;  // Track current question index
-    let failedQuestions = [];  // Store failed questions
-
-    const questionContainer = document.getElementById("question-container");
-    const resultsContainer = document.getElementById("results-container");
-    const endTestButton = document.getElementById("end-test-button");
-    const retryButton = document.getElementById("retry-button");
-    const nextButton = document.getElementById("next-button");
-    const changeUrlButton = document.getElementById("change-url-button");
-    const urlInput = document.getElementById("url-input");
-
-    // Start the exam with fetched questions
-    async function startExam() {
-        correctAnswers = 0;
-        askedQuestions = [];
-        failedQuestions = [];
-        resultsContainer.innerHTML = '';  // Clear previous results
-        retryButton.style.display = "none"; // Hide retry button
-        questionContainer.style.display = "block";  // Show question container
-        endTestButton.style.display = "inline-block";  // Show end test button
-
-        LPI_QUESTIONS_DATA = await fetchQuestions(questionsUrl);
-        totalQuestions = LPI_QUESTIONS_DATA.length;
-        if (totalQuestions === 0) {
-            resultsContainer.innerHTML = "<p>No questions available.</p>";
-            return;
+        // Load questions from the given URL
+        async function fetchQuestions(url) {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                alert("Failed to load questions. Please try again later.");
+                return [];
+            }
         }
 
-        // Shuffle the questions
-        shuffleArray(LPI_QUESTIONS_DATA);
+        // Global variables for the exam logic
+        let correctAnswers = 0;
+        let askedQuestions = [];
+        let totalQuestions = 0;
+        let LPI_QUESTIONS_DATA = [];
 
-        currentQuestionIndex = 0;
-        displayQuestion();
-    }
+        const questionContainer = document.getElementById("question-container");
+        const resultsContainer = document.getElementById("results-container");
+        const endTestButton = document.getElementById("end-test-button");
+        const retryButton = document.getElementById("retry-button");
+        const changeUrlButton = document.getElementById("change-url-button");
+        const urlInput = document.getElementById("url-input");
 
-    function displayQuestion() {
-        if (currentQuestionIndex === totalQuestions) {
-            showResults();
-            return;
+        // Start the exam with fetched questions
+        async function startExam() {
+            correctAnswers = 0;
+            askedQuestions = [];
+            resultsContainer.innerHTML = '';  // Clear previous results
+            retryButton.style.display = "none"; // Hide retry button
+            questionContainer.style.display = "block";  // Show question container
+            endTestButton.style.display = "inline-block";  // Show end test button
+
+            LPI_QUESTIONS_DATA = await fetchQuestions(questionsUrl);
+            totalQuestions = LPI_QUESTIONS_DATA.length;
+            if (totalQuestions === 0) {
+                resultsContainer.innerHTML = "<p>No questions available.</p>";
+                return;
+            }
+            displayQuestion();
         }
 
-        // Clear previous results before displaying a new question
-        resultsContainer.innerHTML = '';
-
-        const questionData = LPI_QUESTIONS_DATA[currentQuestionIndex];
-        const questionText = questionData.question;
-        let options = questionData.options;
-        const correctAnswersArray = questionData.answer;
-
-        const isMultipleChoice = correctAnswersArray.length > 1;
-
-        // Shuffle options
-        shuffleArray(options);
-
-        // Render question and options (radio for single answer, checkboxes for multiple answers)
-        questionContainer.innerHTML = `
-                <p><strong>Question:</strong> ${questionText}</p>
-                <div class="options">
-                    ${options.map((option, index) =>
-            isMultipleChoice ?
-                `<label class="option"><input type="checkbox" name="option" value="${option}" data-index="${index}" class="checkbox"> ${option}</label>` :
-                `<label class="option"><input type="radio" name="option" value="${option}" data-index="${index}" class="radio"> ${option}</label>`
-        ).join('')}
-                </div>
-                <button id="submit-answer-button" disabled>Submit Answer</button>
-            `;
-
-        const inputs = document.querySelectorAll('input[name="option"]');
-        const submitButton = document.getElementById("submit-answer-button");
-
-        inputs.forEach(input => {
-            input.addEventListener("change", function() {
-                // For multiple-choice, check the number of checkboxes selected
-                const selectedInputs = document.querySelectorAll('input[name="option"]:checked');
-                if (isMultipleChoice) {
-                    if (selectedInputs.length === correctAnswersArray.length) {
-                        submitButton.disabled = false;
-                    } else {
-                        submitButton.disabled = true;
-                    }
-                } else {
-                    // For single-answer, enable the button when one is selected
-                    submitButton.disabled = selectedInputs.length === 0;
-                }
-            });
-        });
-
-        document.getElementById("submit-answer-button").addEventListener("click", function() {
-            const selectedAnswers = Array.from(inputs)
-                .filter(input => input.checked)
-                .map(input => input.value);
-
-            const resultContainer = document.createElement("div");
-            resultContainer.classList.add("result");
-
-            // Show multiple correct answers in an organized list
-            const formattedAnswers = correctAnswersArray.map(answer => `<li>${answer}</li>`).join('');
-
-            if (isMultipleChoice) {
-                // Check if the selected answers match the correct answers
-                if (selectedAnswers.length === correctAnswersArray.length && selectedAnswers.every(answer => correctAnswersArray.includes(answer))) {
-                    correctAnswers++;
-                    resultContainer.classList.add("correct");
-                    resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
-                } else {
-                    failedQuestions.push({ question: questionText, correctAnswers: correctAnswersArray });
-                    resultContainer.classList.add("incorrect");
-                    resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
-                }
-            } else {
-                // Single answer check
-                const selectedAnswer = selectedAnswers[0];
-                if (correctAnswersArray.includes(selectedAnswer)) {
-                    correctAnswers++;
-                    resultContainer.classList.add("correct");
-                    resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
-                } else {
-                    failedQuestions.push({ question: questionText, correctAnswers: correctAnswersArray });
-                    resultContainer.classList.add("incorrect");
-                    resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
-                }
+        function displayQuestion() {
+            if (askedQuestions.length === totalQuestions) {
+                showResults();
+                return;
             }
 
-            // Append the result to the results container
-            resultsContainer.appendChild(resultContainer);
-            resultContainer.style.display = "block"; // Show the result
+            // Clear previous results before displaying a new question
+            resultsContainer.innerHTML = '';
 
-            // Disable submit button after answer submission
-            submitButton.disabled = true;
+            // Get a random question index not asked before
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * totalQuestions);
+            } while (askedQuestions.includes(randomIndex));
+            askedQuestions.push(randomIndex);
 
-            // Enable next button
-            nextButton.disabled = false;
-        });
-    }
+            const questionData = LPI_QUESTIONS_DATA[randomIndex];
+            const questionText = questionData.question;
+            const options = questionData.options;
+            const correctAnswersArray = questionData.answer;
 
-    function showResults() {
-        // Hide question container and end test button
-        questionContainer.style.display = "none";
-        endTestButton.style.display = "none";
+            const isMultipleChoice = correctAnswersArray.length > 1;
 
-        // Show final score
-        resultsContainer.innerHTML += `
-                <p>You have completed the exam!</p>
-                <p>Your score: ${correctAnswers} out of ${totalQuestions}</p>
-            `;
+            // Render question and options (radio for single answer, checkboxes for multiple answers)
+            questionContainer.innerHTML = 
+                `<p><strong>Question:</strong> ${questionText}</p>
+                <div class="options">
+                    ${options.map((option, index) => 
+                        isMultipleChoice ? 
+                            `<label class="option"><input type="checkbox" name="option" value="${option}" data-index="${index}" class="checkbox"> ${option}</label>` :
+                            `<label class="option"><input type="radio" name="option" value="${option}" data-index="${index}" class="radio"> ${option}</label>`
+                    ).join('')}
+                </div>
+                <button id="submit-answer-button" disabled>Submit Answer</button>`;
 
-        // Display failed questions and answers
-        if (failedQuestions.length > 0) {
-            resultsContainer.innerHTML += `<h3>Failed Questions:</h3>`;
-            failedQuestions.forEach(failed => {
-                resultsContainer.innerHTML += `
-                        <div class="failed-question">
-                            <h4>Question:</h4>
-                            <p>${failed.question}</p>
-                            <h4>Correct Answers:</h4>
-                            <ul>${failed.correctAnswers.map(answer => `<li>${answer}</li>`).join('')}</ul>
-                        </div>
-                    `;
+            const inputs = document.querySelectorAll('input[name="option"]');
+            const submitButton = document.getElementById("submit-answer-button");
+
+            inputs.forEach(input => {
+                input.addEventListener("change", function() {
+                    // For multiple-choice, check the number of checkboxes selected
+                    const selectedInputs = document.querySelectorAll('input[name="option"]:checked');
+                    if (isMultipleChoice) {
+                        if (selectedInputs.length === correctAnswersArray.length) {
+                            submitButton.disabled = false;
+                        } else {
+                            submitButton.disabled = true;
+                        }
+                    } else {
+                        // For single-answer, enable the button when one is selected
+                        submitButton.disabled = selectedInputs.length === 0;
+                    }
+                });
+            });
+
+            document.getElementById("submit-answer-button").addEventListener("click", function() {
+                const selectedAnswers = Array.from(inputs)
+                    .filter(input => input.checked)
+                    .map(input => input.value);
+
+                const resultContainer = document.createElement("div");
+                resultContainer.classList.add("result");
+
+                // Show multiple correct answers in an organized list
+                const formattedAnswers = correctAnswersArray.map(answer => `<li>${answer}</li>`).join('');
+
+                if (isMultipleChoice) {
+                    // Check if the selected answers match the correct answers
+                    if (selectedAnswers.length === correctAnswersArray.length && selectedAnswers.every(answer => correctAnswersArray.includes(answer))) {
+                        correctAnswers++;
+                        resultContainer.classList.add("correct");
+                        resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
+                    } else {
+                        resultContainer.classList.add("incorrect");
+                        resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
+                    }
+                } else {
+                    // Single answer check
+                    const selectedAnswer = selectedAnswers[0];
+                    if (correctAnswersArray.includes(selectedAnswer)) {
+                        correctAnswers++;
+                        resultContainer.classList.add("correct");
+                        resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
+                    } else {
+                        resultContainer.classList.add("incorrect");
+                        resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
+                    }
+                }
+
+                // Append the result to the results container
+                resultsContainer.appendChild(resultContainer);
+                resultContainer.style.display = "block"; // Show the result
+
+                setTimeout(displayQuestion, 1500); // Show next question after a delay
             });
         }
 
-        retryButton.style.display = "inline-block"; // Show the retry button
-        nextButton.style.display = "none";  // Hide the Next button
-    }
+        function showResults() {
+            // Hide question container and end test button
+            questionContainer.style.display = "none";
+            endTestButton.style.display = "none";
 
-    // End the test when the button is clicked
-    endTestButton.addEventListener("click", function() {
-        showResults();
-    });
-
-    // Retry the test when the button is clicked
-    retryButton.addEventListener("click", function() {
-        startExam();  // Restart the exam with the same URL
-
-        // Make sure the Next button is visible and enabled
-        nextButton.style.display = "inline-block";
-        nextButton.disabled = false; // Enable the Next button
-    });
-
-    // Go to the next question
-    nextButton.addEventListener("click", function() {
-        if (currentQuestionIndex < totalQuestions - 1) {
-            currentQuestionIndex++;
-            displayQuestion();
-            nextButton.disabled = true;
+            // Show final score
+            resultsContainer.innerHTML += 
+                `<p>You have completed the exam!</p>
+                <p>Your score: ${correctAnswers} out of ${totalQuestions}</p>`;
+            retryButton.style.display = "inline-block"; // Show the retry button
         }
-    });
 
-    // Toggle URL input visibility
-    changeUrlButton.addEventListener("click", function() {
-        urlInput.style.display = urlInput.style.display === "none" ? "block" : "none";
-    });
+        // End the test when the button is clicked
+        endTestButton.addEventListener("click", function() {
+            showResults();
+        });
 
-    // Update questions URL
-    urlInput.addEventListener("change", function() {
-        const newUrl = urlInput.value;
-        if (newUrl) {
-            questionsUrl = newUrl;
-            startExam();  // Restart the exam with the new URL
-        }
-    });
+        // Retry the test when the button is clicked
+        retryButton.addEventListener("click", function() {
+            startExam();  // Restart the exam with the same URL
+        });
 
-    // Start the exam when the page loads
-    startExam();
-</script>
+        // Toggle URL input visibility
+        changeUrlButton.addEventListener("click", function() {
+            urlInput.style.display = urlInput.style.display === "none" ? "block" : "none";
+        });
+
+        // Update questions URL
+        urlInput.addEventListener("change", function() {
+            const newUrl = urlInput.value;
+            if (newUrl) {
+                questionsUrl = newUrl;
+                startExam();  // Restart the exam with the new URL
+                urlInput.style.display = "none";
+                alert("URL changed. The exam will now use the new questions.");
+            }
+        });
+
+        // Start the exam initially
+        startExam();
+    </script>
 </body>
 </html>
