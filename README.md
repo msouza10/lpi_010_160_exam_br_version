@@ -95,3 +95,8 @@ LPI practice exam:
 
    ➣ Answer number 1 (1 - 5):
 ```
+
+---
+
+>[!NOTE]
+> You can also try [jhardoin]https://github.com/jhardoin/]s [Anki deck](https://apps.ankiweb.net/) based on this repo [here](https://github.com/jhardoin/Linux-Essentials/).
