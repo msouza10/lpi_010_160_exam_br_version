@@ -1,0 +1,1149 @@
+[
+  {
+    "id": 1,
+    "question": "Quais são as diferenças entre hard disk drives e solid state disks? (Escolha duas.)",
+    "options": [
+      "Hard disks podem falhar devido a danos físicos, enquanto solid state disks não podem falhar.",
+      "Solid state disks podem armazenar muitos dados a mais do que hard disk drives.",
+      "/dev/sda é um dispositivo de hard disk enquanto /dev/ssda é um solid state disk.",
+      "Solid state disks fornecem acesso mais rápido aos dados armazenados do que hard disks.",
+      "Hard disks têm um motor e partes móveis, solid state disks não têm."
+    ],
+    "answer": [
+      "Hard disks têm um motor e partes móveis, solid state disks não têm.",
+      "Solid state disks fornecem acesso mais rápido aos dados armazenados do que hard disks."
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Membros de uma equipe já possuem experiência usando Red Hat Enterprise Linux. Para um pequeno projeto de hobby, a equipe deseja configurar um servidor Linux sem pagar por uma assinatura. Qual das seguintes distribuições Linux permite que os membros da equipe apliquem o máximo possível de seu conhecimento de Red Hat Enterprise Linux?",
+    "options": [
+      "CentOS",
+      "Debian GNU/Linux",
+      "Ubuntu Linux LTS",
+      "openSUSE",
+      "Raspbian"
+    ],
+    "answer": [
+      "CentOS"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Reverse DNS atribui nomes de host a endereços IP. Como o nome do endereço IP 198.51.100.165 é armazenado em um servidor DNS?",
+    "options": [
+      "No registro A para 165.100.51.198.ipv4.arpa.",
+      "No registro REV para arpa.in-addr.198.51.100.165.",
+      "No registro RNAME para 198-51-100-165.rev.arpa.",
+      "No registro ARPA para 165.100.51.198.rev.",
+      "No registro PTR para 165.100.51.198.in-addr.arpa."
+    ],
+    "answer": [
+      "No registro PTR para 165.100.51.198.in-addr.arpa."
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Qual dos seguintes tipos de barramento pode conectar hard disk drives à placa-mãe?",
+    "options": [
+      "O barramento RAM",
+      "O barramento NUMA",
+      "O barramento Auto",
+      "O barramento CPU",
+      "O barramento SATA"
+    ],
+    "answer": [
+      "O barramento SATA"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Qual dos seguintes comandos pode ser usado para resolver um nome DNS para um endereço IP?",
+    "options": [
+      "dnsname",
+      "query",
+      "dns",
+      "iplookup",
+      "host"
+    ],
+    "answer": [
+      "host"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Que informação pode ser exibida pelo comando top?",
+    "options": [
+      "Contas de usuário, ordenadas pelo número de arquivos.",
+      "Processos em execução, ordenados pelo consumo de CPU ou RAM.",
+      "Contas de usuário, ordenadas pelo número de logins.",
+      "Grupos de usuário, ordenados pelo número de membros.",
+      "Arquivos existentes, ordenados pelo seu tamanho."
+    ],
+    "answer": [
+      "Processos em execução, ordenados pelo consumo de CPU ou RAM."
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Qual dos seguintes outputs vem do comando free?",
+    "options": [
+      "A. 21:04 up 14 dats, 7:43, 3 users, load average: 0.89, 1.00, 0.99",
+      "avg-cpu:  %user   %nice %system %iowait  %steal   %idle\n16.36    0.00    2.99    1.06    0.00   79.59",
+      "Filesystem      Size  Used Avail Use% Mounted on \n/dev/nvme0n1p2  468G   33G  412G   8% /",
+      "120K  /tmp",
+      "total        used        free      shared  buff/cache   available\nMem:            15Gi       2.3Gi         9Gi       910Mi       3.0Gi        11Gi\nSwap:          2.0Gi          0B       2.0Gi"
+    ],
+    "answer": [
+      "total        used        free      shared  buff/cache   available\nMem:            15Gi       2.3Gi         9Gi       910Mi       3.0Gi        11Gi\nSwap:          2.0Gi          0B       2.0Gi"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "O que é verdadeiro sobre o comando dmesg? (Escolha duas.)",
+    "options": [
+      "Ele pode não exibir informações antigas porque foram sobrescritas por informações mais novas.",
+      "Ele envia mensagens para as linhas de comando de todas as sessões de usuário ativas.",
+      "Ele rastreia a execução de um comando e mostra cada etapa que o programa realiza.",
+      "Ele exibe o conteúdo do buffer circular do kernel Linux.",
+      "Ele exibe imediatamente todas as novas mensagens escritas no system journal."
+    ],
+    "answer": [
+      "Ele exibe o conteúdo do buffer circular do kernel Linux.",
+      "Ele pode não exibir informações antigas porque foram sobrescritas por informações mais novas."
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Qual dos seguintes outputs pode ser resultado do comando last?",
+    "options": [
+      "1 ls\n 2 cat text.txt\n 3 logout",
+      "Password for user last changed at Sat Mar 31 16:38:57 EST 2018",
+      "Last login: Fri Mar 23 10:56:39 2018 from server.example.com",
+      "EXT4-fs(dm7): mountes filesystem with ordered data mode. Opts: (null)",
+      "root tty2 Wed May 17 21:11 - 21:11 (00:00)"
+    ],
+    "answer": [
+      "root tty2 Wed May 17 21:11 - 21:11 (00:00)"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "O que é verdadeiro sobre o proprietário de um arquivo?",
+    "options": [
+      "O usuário que possui um arquivo deve ser membro do grupo do arquivo.",
+      "O proprietário de um arquivo não pode ser alterado uma vez atribuído.",
+      "Cada arquivo é possuído por exatamente um usuário e um grupo.",
+      "O proprietário de um arquivo sempre tem permissões totais ao acessar o arquivo.",
+      "Quando um usuário é deletado, todos os arquivos de sua propriedade desaparecem."
+    ],
+    "answer": [
+      "Cada arquivo é possuído por exatamente um usuário e um grupo."
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Qual é o UID do usuário root?",
+    "options": [
+      "255",
+      "0",
+      "1",
+      "-1",
+      "65536"
+    ],
+    "answer": [
+      "0"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Quais permissões são definidas em um arquivo regular depois que as permissões foram modificadas com o comando chmod 654 file.txt?",
+    "options": [
+      "d—wxr-x--",
+      "drw-r-xr--",
+      "–rwxrw---x",
+      "–wxr-x--x",
+      "-rw-r-xr--"
+    ],
+    "answer": [
+      "-rw-r-xr--"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Quais das seguintes opções do tar lidam com compressão? (Escolha duas.)",
+    "options": [
+      "-z",
+      "-g",
+      "-z2",
+      "-bz",
+      "-j"
+    ],
+    "answer": [
+      "-z",
+      "-j"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Quais das seguintes permissões estão definidas no diretório /tmp/?",
+    "options": [
+      "rwX",
+      "rwxrwxrwt",
+      "r-xr-X--t",
+      "rwSrw-rw-",
+      "rwxrwS---"
+    ],
+    "answer": [
+      "rwxrwxrwt"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Que informação é armazenada em /etc/passwd? (Escolha três.)",
+    "options": [
+      "O shell padrão do usuário",
+      "O limite de espaço de armazenamento do usuário",
+      "O nome de usuário",
+      "O ID numérico do usuário",
+      "A senha criptografada"
+    ],
+    "answer": [
+      "O shell padrão do usuário",
+      "O nome de usuário",
+      "O ID numérico do usuário"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Qual comando adiciona o novo usuário tux e cria o diretório home do usuário com arquivos de configuração padrão?",
+    "options": [
+      "useradd –m tux",
+      "defaultuser tux",
+      "useradd –o default tux",
+      "passwd –a tux",
+      "usercreate tux"
+    ],
+    "answer": [
+      "useradd –m tux"
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Qual dos seguintes comandos cria um arquivo de archive work.tar a partir do conteúdo do diretório ./work/?",
+    "options": [
+      "tar work > work.tar",
+      "tar work.tar < ./work/",
+      "tar --new work.tar ./work/",
+      "tar –cf work.tar ./work/",
+      "tar –create work.tgz –content ./work/"
+    ],
+    "answer": [
+      "tar –cf work.tar ./work/"
+    ]
+  },
+  {
+    "id": 18,
+    "question": "O diretório atual contém o seguinte arquivo: -rwxr-xr-x 1 root root 859688 Feb 7 08:15 test.sh. Dado que o arquivo é um script shell válido, como este script pode ser executado? (Escolha duas.)",
+    "options": [
+      "bash test.sh",
+      "${test.sh}",
+      "cmd ./test.sh",
+      "./test.sh",
+      "run test.sh"
+    ],
+    "answer": [
+      "bash test.sh",
+      "./test.sh"
+    ]
+  },
+  {
+    "id": 19,
+    "question": "Qual das seguintes teclas pode ser pressionada para sair do less?",
+    "options": [
+      "l",
+      "e",
+      "q",
+      "!",
+      "x"
+    ],
+    "answer": [
+      "q"
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Qual palavra-chave é usada em um script shell para iniciar um loop? (Especifique apenas uma palavra-chave, sem informações adicionais.)",
+    "options": [
+      "for",
+      "forloop"
+    ],
+    "answer": [
+      "for"
+    ]
+  },
+  {
+    "id": 21,
+    "question": "Qual dos seguintes comandos procurará pelo arquivo foo.txt no diretório /home?",
+    "options": [
+      "find /home – file foo.txt",
+      "find /home –name foo.txt",
+      "find /home foo.txt",
+      "search /home –file foo.txt",
+      "search /home foo. txt"
+    ],
+    "answer": [
+      "find /home –name foo.txt"
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Um diretório contém os seguintes arquivos: a.txt e b.txt. Qual seria o output do seguinte script shell? for file in *.txt",
+    "options": [
+      "a b",
+      "*.txt",
+      "c.cav",
+      "a.txt",
+      "a.txt b.txt"
+    ],
+    "answer": [
+      "a.txt b.txt"
+    ]
+  },
+  {
+    "id": 23,
+    "question": "O diretório atual contém o seguinte arquivo: -rw-r–r– 1 root exec 24551 Apr 2 12:36 test.sh. O arquivo contém um script shell válido, mas ao executá-lo usando ./test.sh ocorre o seguinte erro: bash: ./test.sh: Permission denied. O que deve ser feito para executar o script com sucesso?",
+    "options": [
+      "A extensão do arquivo deve ser alterada de .sh para .bin.",
+      "O script deve ser executado usando #!./test.sh ao invés de ./test.sh.",
+      "O bit de execução deve ser definido nas permissões do arquivo.",
+      "O usuário que executa o script deve ser adicionado ao grupo exec.",
+      "O bit SetUID deve ser definido nas permissões do arquivo."
+    ],
+    "answer": [
+      "O bit de execução deve ser definido nas permissões do arquivo."
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Qual dos seguintes comandos ordena o output do comando export-logs?",
+    "options": [
+      "export-logs < sort",
+      "export-logs & sort",
+      "export-logs <> sort",
+      "export-logs | sort",
+      "export-logs > sort"
+    ],
+    "answer": [
+      "export-logs | sort"
+    ]
+  },
+  {
+    "id": 25,
+    "question": "O que é uma distribuição Linux?",
+    "options": [
+      "Um conjunto de alterações no Linux que permitem que o Linux seja executado em outra arquitetura de processador.",
+      "Um sistema operacional baseado em Linux, mas incompatível com o kernel Linux regular.",
+      "O sistema de arquivos Linux como visto a partir da conta root após montar todos os sistemas de arquivos.",
+      "O conjunto de regras que rege a distribuição do código-fonte do kernel Linux.",
+      "Uma agregação do kernel Linux, utilitários do sistema e outros softwares."
+    ],
+    "answer": [
+      "Uma agregação do kernel Linux, utilitários do sistema e outros softwares."
+    ]
+  },
+  {
+    "id": 26,
+    "question": "Onde o sistema operacional de um Raspberry Pi é armazenado?",
+    "options": [
+      "Em um cartão SD removível que é inserido no Raspberry Pi.",
+      "Em um armazenamento flash regravável que vem integrado no Raspberry Pi.",
+      "Em uma partição somente leitura no firmware do Raspberry Pi, próximo ao BIOS.",
+      "No dispositivo master conectado ao barramento IDE do Raspberry Pi.",
+      "Em um módulo de extensão Linux conectado aos pinos GPIO do Raspberry Pi."
+    ],
+    "answer": [
+      "Em um cartão SD removível que é inserido no Raspberry Pi."
+    ]
+  },
+  {
+    "id": 27,
+    "question": "Qual dos seguintes programas é um editor gráfico para gráficos vetoriais?",
+    "options": [
+      "NGINX",
+      "Python",
+      "MySQL",
+      "Samba",
+      "Inkscape"
+    ],
+    "answer": [
+      "Inkscape"
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Qual ferramenta de gerenciamento de pacotes é usada em sistemas Linux baseados em Red Hat?",
+    "options": [
+      "rpm",
+      "apt-get",
+      "dpkg",
+      "packagectl",
+      "portage"
+    ],
+    "answer": [
+      "rpm"
+    ]
+  },
+  {
+    "id": 29,
+    "question": "Qual dos seguintes caracteres em um prompt de shell indica que o shell está sendo executado com privilégios de root?",
+    "options": [
+      "*",
+      "&",
+      "$",
+      "#",
+      "!"
+    ],
+    "answer": [
+      "#"
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Quais dos seguintes são serviços típicos oferecidos por provedores de cloud pública? (Escolha três.)",
+    "options": [
+      "Internet as a Service(IaaS)",
+      "Graphics as a Service (GaaS)",
+      "Platform as a Service(PaaS)",
+      "Infrastructure as a Service(IaaS)",
+      "Software as a Service (SaaS)"
+    ],
+    "answer": [
+      "Infrastructure as a Service(IaaS)",
+      "Platform as a Service(PaaS)",
+      "Software as a Service (SaaS)"
+    ]
+  },
+  {
+    "id": 31,
+    "question": "O que é definido por uma licença de Software Livre?",
+    "options": [
+      "Condições para modificar e distribuir o software licenciado.",
+      "Detalhes da documentação técnica que cada colaborador deve fornecer.",
+      "Uma lista completa de bibliotecas necessárias para compilar o software licenciado.",
+      "As linguagens de programação que podem ser usadas para estender o programa licenciado.",
+      "Limitações quanto aos propósitos para os quais o software licenciado pode ser usado."
+    ],
+    "answer": [
+      "Condições para modificar e distribuir o software licenciado."
+    ]
+  },
+  {
+    "id": 32,
+    "question": "Por que os cookies dos navegadores web são considerados perigosos?",
+    "options": [
+      "Cookies armazenam dados críticos que são perdidos quando um cookie é deletado.",
+      "Cookies são sempre públicos e acessíveis por qualquer pessoa na internet.",
+      "Cookies suportam a identificação e o rastreamento de usuários.",
+      "Cookies podem conter e executar vírus e malwares.",
+      "Cookies consomem quantidades significativas de armazenamento e podem esgotar o espaço em disco."
+    ],
+    "answer": [
+      "Cookies suportam a identificação e o rastreamento de usuários."
+    ]
+  },
+  {
+    "id": 33,
+    "question": "Ao executar o comando rm Downloads, ocorre o seguinte erro: rm: cannot remove ‘Downloads/’: Is a directory. Qual dos seguintes comandos pode ser usado para remover Downloads, assumindo que ele está vazio? (Escolha dois.)",
+    "options": [
+      "rmdir Downloads",
+      "rm –r Downloads",
+      "rem Downloads",
+      "dir –r Downloads",
+      "undir Downloads"
+    ],
+    "answer": [
+      "rm –r Downloads",
+      "rmdir Downloads"
+    ]
+  },
+  {
+    "id": 34,
+    "question": "O que é verdadeiro sobre uma listagem de diretório recursiva?",
+    "options": [
+      "Inclui informações de propriedade dos arquivos.",
+      "Inclui detalhes internos do sistema de arquivos, como inodes.",
+      "Inclui uma pré-visualização do conteúdo de cada arquivo no diretório.",
+      "Inclui o conteúdo dos subdiretórios.",
+      "Inclui as permissões do diretório listado."
+    ],
+    "answer": [
+      "Inclui o conteúdo dos subdiretórios."
+    ]
+  },
+  {
+    "id": 35,
+    "question": "Quais dos seguintes comandos são usados para obter informações sobre o uso correto do ls? (Escolha dois.)",
+    "options": [
+      "option ls",
+      "info ls",
+      "usage ls",
+      "manual ls",
+      "man ls"
+    ],
+    "answer": [
+      "man ls",
+      "info ls"
+    ]
+  },
+  {
+    "id": 36,
+    "question": "Qual dos seguintes diretórios contém informações, documentação e arquivos de exemplo de configuração para pacotes de software instalados?",
+    "options": [
+      "/usr/share/doc/",
+      "/etc/defaults/",
+      "/var/info/",
+      "/usr/examples/",
+      "/doc/"
+    ],
+    "answer": [
+      "/usr/share/doc/"
+    ]
+  },
+  {
+    "id": 37,
+    "question": "Um usuário está atualmente no diretório /home/user/Downloads/ e executa o comando ls ../Documents/. Assumindo que ele existe, o conteúdo de qual diretório é exibido?",
+    "options": [
+      "/home/user/Documents/Downloads/",
+      "/home/user/Documents/",
+      "/home/user/Downloads/Documents/",
+      "/Documents/",
+      "/home/Documents"
+    ],
+    "answer": [
+      "/home/user/Documents/"
+    ]
+  },
+  {
+    "id": 38,
+    "question": "Qual dos seguintes comandos adiciona o diretório /new/dir/ à variável de ambiente PATH?",
+    "options": [
+      "export PATH=/new/dir: PATH",
+      "PATH=/new/dir: PATH",
+      "export $PATH=/new/dir: $PATH",
+      "$PATH=/new/dir: $PATH",
+      "export PATH=/new/dir: $PATH"
+    ],
+    "answer": [
+      "export PATH=/new/dir: $PATH"
+    ]
+  },
+  {
+    "id": 39,
+    "question": "Um diretório contém os seguintes três arquivos: texts 1.txt, texts 2.txt, texts 3.csv. Qual comando copia os dois arquivos que terminam com .txt para o diretório /tmp/?",
+    "options": [
+      "cp. \\.txt /tmp/",
+      "cp *.txt /tmp/",
+      "cp ?.txt /tmp/",
+      "cp ??.txt /tmp/",
+      "cp $?.txt /tmp/"
+    ],
+    "answer": [
+      "cp *.txt /tmp/"
+    ]
+  },
+  {
+    "id": 40,
+    "question": "FILL BLANK Ao digitar uma linha de comando longa no shell, qual caractere único pode ser usado para dividir um comando em múltiplas linhas?",
+    "options": [
+      "/",
+      "\\"
+    ],
+    "answer": [
+      "\\"
+    ]
+  },
+  {
+    "id": 41,
+    "question": "Quais dos seguintes tipos de registro DNS contêm um endereço IP? (Escolha dois.)",
+    "options": [
+      "NS",
+      "AAAA",
+      "MX",
+      "A",
+      "CNAME"
+    ],
+    "answer": [
+      "AAAA",
+      "A"
+    ]
+  },
+  {
+    "id": 42,
+    "question": "Qual dos seguintes valores poderia ser um ID de processo no Linux?",
+    "options": [
+      "/bin/bash",
+      "60b503cd-019e-4300-a7be-922f074ef5ce",
+      "/sys/pid/9a14",
+      "fff3",
+      "21398"
+    ],
+    "answer": [
+      "21398"
+    ]
+  },
+  {
+    "id": 43,
+    "question": "Qual dos seguintes é um protocolo usado para configuração automática de endereços IP?",
+    "options": [
+      "NFS",
+      "LDAP",
+      "SMTP",
+      "DNS",
+      "DHCP"
+    ],
+    "answer": [
+      "DHCP"
+    ]
+  },
+  {
+    "id": 44,
+    "question": "Qual dos seguintes dispositivos representa uma partição de hard disk?",
+    "options": [
+      "/dev/ttyS0",
+      "/dev/sata0",
+      "/dev/part0",
+      "/dev/sda2",
+      "/dev/sda/p2"
+    ],
+    "answer": [
+      "/dev/sda2"
+    ]
+  },
+  {
+    "id": 45,
+    "question": "Qual das seguintes afirmações sobre drivers de hardware do Linux está correta?",
+    "options": [
+      "Drivers são programas Linux comuns que precisam ser executados pelo usuário que deseja usar um dispositivo.",
+      "Drivers não são usados pelo Linux porque o BIOS lida com todo acesso ao hardware em nome do Linux.",
+      "Drivers são armazenados em seus dispositivos e são copiados pelo kernel Linux quando um novo dispositivo é conectado.",
+      "Drivers são baixados do repositório de drivers do fornecedor quando um novo dispositivo é conectado.",
+      "Drivers são ou compilados no kernel Linux ou carregados como módulos do kernel."
+    ],
+    "answer": [
+      "Drivers são ou compilados no kernel Linux ou carregados como módulos do kernel."
+    ]
+  },
+  {
+    "id": 46,
+    "question": "O que pode ser encontrado no diretório /proc/?",
+    "options": [
+      "Um diretório para cada programa instalado.",
+      "Um diretório para cada programa instalado.",
+      "Um arquivo para cada conta de usuário existente.",
+      "Um diretório para cada processo em execução.",
+      "Um arquivo de log para cada serviço em execução."
+    ],
+    "answer": [
+      "Um diretório para cada processo em execução."
+    ]
+  },
+  {
+    "id": 47,
+    "question": "Um novo servidor precisa ser instalado para hospedar serviços por um período de vários anos. Durante esse tempo, o servidor deve receber atualizações de segurança importantes da sua distribuição Linux. Quais das seguintes distribuições Linux atendem a esses requisitos? (Escolha duas.)",
+    "options": [
+      "Ubuntu Linux LTS",
+      "Fedora Linux",
+      "Debian GNU/Linux Unstable",
+      "Ubuntu Linux non-LTS",
+      "Red Hat Enterprise Linux"
+    ],
+    "answer": [
+      "Ubuntu Linux LTS",
+      "Red Hat Enterprise Linux"
+    ]
+  },
+  {
+    "id": 48,
+    "question": "Qual dos seguintes diretórios deve ser montado com acesso de leitura e escrita se residir em seu próprio sistema de arquivos dedicado?",
+    "options": [
+      "/opt",
+      "/lib",
+      "/etc",
+      "/var",
+      "/usr"
+    ],
+    "answer": [
+      "/var"
+    ]
+  },
+  {
+    "id": 49,
+    "question": "A propriedade do arquivo doku.odt deve ser alterada. O novo proprietário se chama tux. Qual comando realiza essa alteração?",
+    "options": [
+      "chmod u=tux doku.odt",
+      "newuser doku.odt tux",
+      "chown tux doku.odt",
+      "transfer tux: doku.odt",
+      "passwd doku.odt:tux"
+    ],
+    "answer": [
+      "chown tux doku.odt"
+    ]
+  },
+  {
+    "id": 50,
+    "question": "O que acontece com um arquivo que reside fora do diretório home quando a conta do proprietário é deletada? (Escolha duas.)",
+    "options": [
+      "Durante uma verificação do sistema de arquivos, o arquivo é movido para /lost+found.",
+      "O arquivo é removido do sistema de arquivos.",
+      "O UID do ex-proprietário é exibido ao listar os detalhes do arquivo.",
+      "O usuário root é definido como o novo proprietário do arquivo.",
+      "A propriedade e as permissões do arquivo permanecem inalteradas."
+    ],
+    "answer": [
+      "O UID do ex-proprietário é exibido ao listar os detalhes do arquivo.",
+      "A propriedade e as permissões do arquivo permanecem inalteradas."
+    ]
+  },
+  {
+    "id": 51,
+    "question": "Quais afirmações sobre o diretório /etc/skel estão corretas? (Escolha duas.)",
+    "options": [
+      "As configurações pessoais do usuário root são armazenadas neste diretório.",
+      "Os arquivos deste diretório são copiados para o diretório home do novo usuário ao iniciar o sistema.",
+      "Os arquivos deste diretório são copiados para o diretório home de um novo usuário quando a conta é criada.",
+      "O diretório contém um conjunto padrão de arquivos de configuração usado pelo comando useradd.",
+      "O diretório contém as configurações globais do sistema Linux."
+    ],
+    "answer": [
+      "Os arquivos deste diretório são copiados para o diretório home de um novo usuário quando a conta é criada.",
+      "O diretório contém um conjunto padrão de arquivos de configuração usado pelo comando useradd."
+    ]
+  },
+  {
+    "id": 52,
+    "question": "O que é verdadeiro sobre links em um sistema de arquivos Linux?",
+    "options": [
+      "Um link simbólico pode apontar apenas para um arquivo e não para um diretório.",
+      "Um hard link pode apontar apenas para um diretório e nunca para um arquivo.",
+      "Quando o alvo de um link simbólico é movido, o link é atualizado automaticamente.",
+      "Um link simbólico pode apontar para um arquivo em outro sistema de arquivos.",
+      "Apenas o usuário root pode criar hard links."
+    ],
+    "answer": [
+      "Um link simbólico pode apontar para um arquivo em outro sistema de arquivos."
+    ]
+  },
+  {
+    "id": 53,
+    "question": "Quais arquivos são a fonte da informação no seguinte output? (Escolha dois.) uid=1000 (bob) gid=1000 (bob) groups=1000 (bob), 10\n(wheel), 150 (wireshark), 989 (docker), 1001 (libvirt)",
+    "options": [
+      "/etc/id",
+      "/etc/passwd",
+      "/etc/group",
+      "/home/index",
+      "/var/db/users"
+    ],
+    "answer": [
+      "/etc/passwd",
+      "/etc/group"
+    ]
+  },
+  {
+    "id": 54,
+    "question": "Quais das seguintes tarefas o comando passwd pode realizar? (Escolha duas.)",
+    "options": [
+      "Alterar o nome de usuário de um usuário.",
+      "Alterar a senha de um usuário.",
+      "Criar uma nova conta de usuário.",
+      "Criar um novo grupo de usuários.",
+      "Bloquear uma conta de usuário."
+    ],
+    "answer": [
+      "Alterar a senha de um usuário.",
+      "Bloquear uma conta de usuário."
+    ]
+  },
+  {
+    "id": 55,
+    "question": "O que é verdadeiro sobre o comando su?",
+    "options": [
+      "É o shell padrão da conta root.",
+      "Só pode ser usado pelo usuário root.",
+      "Executa um shell ou comando como outro usuário.",
+      "Altera o nome da conta do administrador principal.",
+      "Bloqueia a conta root em períodos específicos."
+    ],
+    "answer": [
+      "Executa um shell ou comando como outro usuário."
+    ]
+  },
+  {
+    "id": 56,
+    "question": "FILL BLANK - Qual parâmetro do ls imprime uma listagem recursiva do conteúdo de um diretório? (Especifique SOMENTE o nome da opção, sem quaisquer valores ou parâmetros.)",
+    "options": [
+      "The answer is 'ls -R' ;)"
+    ],
+    "answer": [
+      "The answer is 'ls -R' ;)"
+    ]
+  },
+  {
+    "id": 57,
+    "question": "A maioria dos comandos no Linux pode exibir informações sobre seu uso. Como essa informação geralmente é exibida?",
+    "options": [
+      "Executando o comando com a opção /? ou /??.",
+      "Executando o comando com a opção ?! ou ?=!.",
+      "Executando o comando com a opção /doc ou /documentation.",
+      "Executando o comando com a opção -h ou --help.",
+      "Executando o comando com a opção -m ou --manpage."
+    ],
+    "answer": [
+      "Executando o comando com a opção -h ou --help."
+    ]
+  },
+  {
+    "id": 58,
+    "question": "Qual dos seguintes comandos exibe o caminho absoluto para o diretório de trabalho atual?",
+    "options": [
+      "who",
+      "cd ..",
+      "pwd",
+      "ls -l",
+      "cd ~/home"
+    ],
+    "answer": [
+      "pwd"
+    ]
+  },
+  {
+    "id": 59,
+    "question": "Qual dos seguintes comandos exibe o conteúdo do arquivo Texts 2.txt? (Escolha dois.)",
+    "options": [
+      "cat 'Texts 2.txt'",
+      "cat -- Texts 2.txt",
+      "cat |Texts 2.txt|",
+      "cat 'Texts\\ 2.txt'",
+      "cat Texts\\ 2.txt"
+    ],
+    "answer": [
+      "cat 'Texts 2.txt'",
+      "cat Texts\\ 2.txt"
+    ]
+  },
+  {
+    "id": 60,
+    "question": "Qual comando exibe apenas os nomes dos arquivos, sem informações adicionais?",
+    "options": [
+      "ls -a",
+      "ls -lh",
+      "ls -l",
+      "ls -alh",
+      "ls -nl"
+    ],
+    "answer": [
+      "ls -a"
+    ]
+  },
+  {
+    "id": 61,
+    "question": "Qual é o propósito da variável de ambiente PATH?",
+    "options": [
+      "Permite a execução de comandos sem a necessidade de saber a localização do executável.",
+      "Aumenta a segurança impedindo que comandos sejam executados em determinados locais.",
+      "Especifica a localização do diretório home do usuário.",
+      "Indica a localização do shell padrão a ser usado quando um usuário faz login.",
+      "Contém o caminho absoluto para o diretório atual."
+    ],
+    "answer": [
+      "Permite a execução de comandos sem a necessidade de saber a localização do executável."
+    ]
+  },
+  {
+    "id": 62,
+    "question": "Qual dos seguintes comandos define a variável USERNAME com o valor bob?",
+    "options": [
+      "set USERNAME bob",
+      "$USERNAME==bob",
+      "var USERNAME=bob",
+      "USERNAME<=bob",
+      "USERNAME=bob"
+    ],
+    "answer": [
+      "USERNAME=bob"
+    ]
+  },
+  {
+    "id": 63,
+    "question": "Que comando exibe as páginas do manual? (originalmente uma pergunta FILL BLANK)",
+    "options": [
+      "manul",
+      "man",
+      "help -m",
+      "lsman",
+      "info --manual"
+    ],
+    "answer": [
+      "man"
+    ]
+  },
+  {
+    "id": 64,
+    "question": "Qual comando copia o conteúdo do diretório /etc/, incluindo todos os subdiretórios, para /root/?",
+    "options": [
+      "copy /etc /root",
+      "cp -r /etc/* /root",
+      "cp -v /etc/* /root",
+      "rcp /etc/* /root",
+      "cp -R /etc/*.* /root"
+    ],
+    "answer": [
+      "cp -r /etc/* /root"
+    ]
+  },
+  {
+    "id": 65,
+    "question": "Qual dos seguintes comandos coloca as linhas do arquivo data.csv em ordem alfabética?",
+    "options": [
+      "a..z data.csv",
+      "sort data.csv",
+      "abc data.csv",
+      "wc -s data.csv",
+      "grep --sort data.csv"
+    ],
+    "answer": [
+      "sort data.csv"
+    ]
+  },
+  {
+    "id": 66,
+    "question": "Qual dos seguintes exemplos mostra a estrutura geral de um loop for em um script shell?",
+    "options": [
+      "for *.txt as file => echo $file",
+      "for *.txt ( echo $i )",
+      "for file in *.txt do echo $i done",
+      "for ls *.txt exec {} \\;",
+      "foreach @{file} { echo $i }"
+    ],
+    "answer": [
+      "for file in *.txt do echo $i done"
+    ]
+  },
+  {
+    "id": 67,
+    "question": "Qual operador em uma expressão regular corresponde ao caractere precedente zero ou uma vez?",
+    "options": [
+      "?",
+      "*",
+      "+",
+      "%",
+      "$"
+    ],
+    "answer": [
+      "?"
+    ]
+  },
+  {
+    "id": 68,
+    "question": "O arquivo script.sh no diretório atual contém o seguinte conteúdo:\n#!/bin/bash\necho $MYVAR\nOs seguintes comandos são usados para executar este script:\n\n\nMYVAR=value -\n./script.sh\nO resultado é uma linha vazia ao invés do conteúdo da variável MYVAR. Como MYVAR deve ser configurado para que script.sh exiba o conteúdo de MYVAR?",
+    "options": [
+      "!MYVAR=value",
+      "env MYVAR=value",
+      "MYVAR=value",
+      "$MYVAR=value",
+      "export MYVAR=value"
+    ],
+    "answer": [
+      "export MYVAR=value"
+    ]
+  },
+  {
+    "id": 69,
+    "question": "Qual é o valor de retorno de um script shell após sua execução bem-sucedida?",
+    "options": [
+      "1",
+      "0",
+      "-1",
+      "-255",
+      "255"
+    ],
+    "answer": [
+      "0"
+    ]
+  },
+  {
+    "id": 70,
+    "question": "Qual dos seguintes comandos cria o arquivo ZIP poems.zip contendo todos os arquivos no diretório atual cujos nomes terminam em .txt?",
+    "options": [
+      "zip *.txt > poems.zip",
+      "zcat *.txt poems.zip",
+      "zip poems.zip *.txt",
+      "zip cfz poems.zip *.txt",
+      "cat *.txt | zip poems.zip"
+    ],
+    "answer": [
+      "zip poems.zip *.txt"
+    ]
+  },
+  {
+    "id": 71,
+    "question": "Quais das seguintes afirmações são verdadeiras sobre um script shell típico? (Escolha duas.)",
+    "options": [
+      "Ele tem o bit de permissão de execução definido.",
+      "Ele começa com a sequência de dois caracteres #!.",
+      "Ele está localizado em /usr/local/scripts/.",
+      "Ele está localizado em /etc/bash/scripts/.",
+      "Ele é compilado em um arquivo binário compatível com a arquitetura da máquina atual."
+    ],
+    "answer": [
+      "Ele tem o bit de permissão de execução definido.",
+      "Ele começa com a sequência de dois caracteres #!."
+    ]
+  },
+  {
+    "id": 72,
+    "question": "Qual dos seguintes comandos extrai o conteúdo do arquivo de archive compactado file1.tar.gz?",
+    "options": [
+      "tar -czf file1.tar.gz",
+      "ztar file1.tar.gz",
+      "tar -xzf file1.tar.gz",
+      "tar --extract file1.tar.gz",
+      "detar file1.tar.gz"
+    ],
+    "answer": [
+      "tar -xzf file1.tar.gz"
+    ]
+  },
+  {
+    "id": 73,
+    "question": "Qual dos seguintes comandos encontra todas as linhas no arquivo operating-systems.txt que contêm o termo linux, independentemente do caso?",
+    "options": [
+      "igrep linux operating-systems.txt",
+      "less -i linux operating-systems.txt",
+      "grep -i linux operating-systems.txt",
+      "cut linux operating-systems.txt",
+      "cut [Ll] [Ii] [Nn] [Uu] [Xx] operating-systems.txt"
+    ],
+    "answer": [
+      "grep -i linux operating-systems.txt"
+    ]
+  },
+  {
+    "id": 74,
+    "question": "Qual das seguintes afirmações sobre senhas no Linux é verdadeira?",
+    "options": [
+      "Todas as senhas podem ser descriptografadas usando a senha mestra do administrador do sistema.",
+      "Senhas nunca podem começar com um caractere não alfabético.",
+      "Usuários não podem alterar sua senha uma vez definida.",
+      "Senhas são armazenadas apenas em forma de hash.",
+      "Senhas podem ter no máximo seis caracteres."
+    ],
+    "answer": [
+      "Senhas são armazenadas apenas em forma de hash."
+    ]
+  },
+  {
+    "id": 75,
+    "question": "Quais dos seguintes programas são servidores web? (Escolha dois.)",
+    "options": [
+      "Apache",
+      "Postfix",
+      "Curl",
+      "Dovecot",
+      "NGINX"
+    ],
+    "answer": [
+      "Apache",
+      "NGINX"
+    ]
+  },
+  {
+    "id": 76,
+    "question": "Qual das seguintes distribuições Linux é derivada do Red Hat Enterprise Linux?",
+    "options": [
+      "Raspbian",
+      "openSUSE",
+      "Debian",
+      "Ubuntu",
+      "CentOS"
+    ],
+    "answer": [
+      "CentOS"
+    ]
+  },
+  {
+    "id": 77,
+    "question": "Qual das seguintes afirmações é verdadeira sobre Software Livre?",
+    "options": [
+      "É desenvolvido apenas por voluntários.",
+      "Pode ser modificado por qualquer pessoa que o utilize.",
+      "Deve estar sempre disponível gratuitamente.",
+      "Só roda no Linux.",
+      "É distribuído apenas como um binário compilado."
+    ],
+    "answer": [
+      "Pode ser modificado por qualquer pessoa que o utilize."
+    ]
+  },
+  {
+    "id": 78,
+    "question": "Como uma nova instância de computação Linux é provisionada em uma nuvem IaaS?",
+    "options": [
+      "O instalador padrão do Linux precisa ser executado através de um console remoto.",
+      "Após a compra de uma distribuição Linux, seu fornecedor a entrega em uma instância de nuvem.",
+      "A instalação precisa ser preparada em uma máquina virtual local que é então copiada para a nuvem.",
+      "A organização de hospedagem em nuvem fornece um conjunto de imagens pré-preparadas de distribuições Linux populares.",
+      "Um arquivo de configuração específico do provedor, descrevendo a instalação desejada, é enviado ao provedor de nuvem."
+    ],
+    "answer": [
+      "A organização de hospedagem em nuvem fornece um conjunto de imagens pré-preparadas de distribuições Linux populares."
+    ]
+  },
+  {
+    "id": 79,
+    "question": "Quais são as diferenças entre uma janela de navegador web privada e uma janela de navegador web normal? (Escolha três.)",
+    "options": [
+      "Janelas privadas não permitem imprimir ou armazenar sites.",
+      "Janelas privadas não armazenam cookies de forma persistente.",
+      "Janelas privadas não suportam logins em sites.",
+      "Janelas privadas não mantêm registros no histórico do navegador.",
+      "Janelas privadas não enviam cookies armazenados regularmente."
+    ],
+    "answer": [
+      "Janelas privadas não armazenam cookies de forma persistente.",
+      "Janelas privadas não mantêm registros no histórico do navegador.",
+      "Janelas privadas não enviam cookies armazenados regularmente."
+    ]
+  },
+  {
+    "id": 80,
+    "question": "Qual é a fonte preferencial para a instalação de novos aplicativos em um sistema operacional baseado em Linux?",
+    "options": [
+      "O sistema de gerenciamento de versões do fornecedor",
+      "Um disco de CD-ROM",
+      "O repositório de pacotes da distribuição",
+      "O site do fornecedor",
+      "Uma loja de varejo"
+    ],
+    "answer": [
+      "O repositório de pacotes da distribuição"
+    ]
+  },
+  {
+    "id": 81,
+    "question": "Que informação é armazenada em /etc/passwd? (Escolha três respostas corretas.)",
+    "options": [
+      "O limite de espaço de armazenamento do usuário",
+      "O ID numérico do usuário",
+      "O nome de usuário",
+      "A senha criptografada",
+      "O shell padrão do usuário"
+    ],
+    "answer": [
+      "O ID numérico do usuário",
+      "O nome de usuário",
+      "O shell padrão do usuário"
+    ]
+  }
+]
