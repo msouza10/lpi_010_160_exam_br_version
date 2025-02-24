@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exame de Prática LPI</title>
+  <meta name="google-site-verification" content="tV0rZfI3rk4mmwRwxHmWxJ59Zf_ZrugOxKKV5BcNMos" />
+  <meta name="title" content="Exame de Prática LPI" />
+  <meta name="description" content="lpi linux essentials 010-160 practice exam." />
+  <meta name="keywords" content="LPI,Linux essentials,Linux" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="Português" />
+  <meta name="author" content="Noam Alum" />
+  <meta property="og:image" content="https://noam-alum.github.io/lpi_010_160_exam/hero.webp" />
+  <link rel="icon" type="image/webp" href="https://noam-alum.github.io/lpi_010_160_exam/logo.webp" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 2.5rem;
+      color: #4caf50;
+    }
+    h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    #author-text {
+      margin-bottom: 10px;
+    }
+    #timer {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    /* Container das questões com estilo uniforme */
+    #question-container {
+      background-color: white;
+      width: 80%;
+      max-width: 700px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Botões de navegação para as questões */
+    #question-nav {
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #question-nav button {
+      margin: 2px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #question-nav button.answered {
+      background-color: #4caf50;
+      color: #fff;
+    }
+    #question-nav button.not-answered {
+      background-color: #d9534f;
+      color: #fff;
+    }
+    #question-nav button.active {
+      border: 2px solid #000;
+    }
+    #question-nav button.marked {
+      background-color: #f0ad4e !important;
+      color: #fff;
+    }
+    /* Estilo dos botões de controle */
+    #controls {
+      margin: 10px;
+      text-align: center;
+    }
+    #controls button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: white;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+    #controls button:hover {
+      background-color: #45a049;
+    }
+    /* Input e botão para alteração de URL */
+    #change-url-button, #language-toggle-button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: white;
+      background-color: #2196F3;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 5px;
+    }
+    #change-url-button:hover, #language-toggle-button:hover {
+      background-color: #1976D2;
+    }
+    #url-input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      display: none;
+      margin: 5px;
+    }
+    /* Estilo dos feedbacks na revisão */
+    .feedback-item {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 700px;
+    }
+    .feedback-item.correct {
+      border-left: 5px solid #4caf50;
+    }
+    .feedback-item.incorrect {
+      border-left: 5px solid #d9534f;
+    }
+    .feedback-item p {
+      margin: 5px 0;
+    }
+    /* Faz cada opção de resposta ficar em linha separada */
+    .options label {
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="https://github.com/Noam-Alum/lpi_010_160_exam">Exame de Prática LPI</a></h1>
+  <p id="author-text">Por Noam Alum</p>
+  <div id="timer">Tempo restante: <span id="time-remaining"></span></div>
+  
+  <!-- Navegação das questões -->
+  <nav id="question-nav"></nav>
+  
+  <!-- Container para exibição da questão ou revisão -->
+  <div id="question-container"></div>
+  
+  <!-- Controles do exame -->
+  <div id="controls">
+    <button id="mark-question-button"></button>
+    <button id="next-question-button"></button>
+    <button id="finish-exam-button"></button>
+  </div>
+  
+  <!-- Botões extras -->
+  <button id="change-url-button"></button>
+  <input type="text" id="url-input" value="https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions_pt_br.json" placeholder="Enter new URL" />
+  <button id="language-toggle-button"></button>
+  
+  <script>
+    // Traduções para cada idioma
+    const translations = {
+      en: {
+        htmlLang: "en",
+        title: "LPI Practice Exam",
+        author: "By Noam Alum",
+        markForReview: "Mark for Review",
+        nextQuestion: "Next",
+        finishExam: "Finish Exam",
+        examCompleted: "Exam Completed!",
+        scoreText: "Your score:",
+        changeUrl: "Change Questions URL",
+        urlChangedAlert: "URL changed. The exam will now use the new questions."
+      },
+      pt: {
+        htmlLang: "pt",
+        title: "Exame de Prática LPI",
+        author: "Por Noam Alum",
+        markForReview: "Marcar para Revisão",
+        nextQuestion: "Próxima",
+        finishExam: "Encerrar Exame",
+        examCompleted: "Exame Finalizado!",
+        scoreText: "Sua pontuação:",
+        changeUrl: "Alterar URL das Questões",
+        urlChangedAlert: "URL alterada. O exame agora usará as novas questões."
+      }
+    };
+
+    let currentLang = "pt";
+    function updateLanguageTexts() {
+      document.documentElement.lang = translations[currentLang].htmlLang;
+      document.querySelector("h1 a").textContent = translations[currentLang].title;
+      document.getElementById("author-text").textContent = translations[currentLang].author;
+      document.getElementById("mark-question-button").textContent = translations[currentLang].markForReview;
+      document.getElementById("next-question-button").textContent = translations[currentLang].nextQuestion;
+      document.getElementById("finish-exam-button").textContent = translations[currentLang].finishExam;
+      document.getElementById("change-url-button").textContent = translations[currentLang].changeUrl;
+      document.getElementById("language-toggle-button").textContent = currentLang === "pt" ? "Switch to English" : "Mudar para Português";
+      // Atualiza também a meta tag language, se necessário
+      document.querySelector('meta[name="language"]').setAttribute("content", currentLang === "pt" ? "Português" : "English");
+    }
+
+    // Variáveis globais do exame
+    let examQuestions = [];
+    let totalQuestions = 54;
+    let currentQuestionIndex = 0;
+    // Agora userAnswers[index] pode ser:
+    // - string (resposta única)
+    // - array de strings (múltipla escolha)
+    let userAnswers = [];
+    let markedQuestions = [];
+    let examTimer;
+    const examDuration = 3600; // 1 hora (exemplo)
+
+    // Elementos do DOM
+    const questionNav = document.getElementById("question-nav");
+    const questionContainer = document.getElementById("question-container");
+    const timerDisplay = document.getElementById("time-remaining");
+    const markButton = document.getElementById("mark-question-button");
+    const nextButton = document.getElementById("next-question-button");
+    const finishButton = document.getElementById("finish-exam-button");
+
+    // Carrega as questões, randomiza e limita a 54
+    async function loadExamQuestions(url) {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        // Embaralha
+        data.sort(() => Math.random() - 0.5);
+        // Limita a 54
+        examQuestions = data.slice(0, 54);
+        totalQuestions = examQuestions.length;
+        generateNavButtons();
+        displayQuestion(currentQuestionIndex);
+      } catch (error) {
+        alert("Erro ao carregar as questões: " + error);
+      }
+    }
+
+    // Gera os botões de navegação
+    function generateNavButtons() {
+      questionNav.innerHTML = "";
+      for (let i = 0; i < totalQuestions; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = (i + 1).toString().padStart(2, '0');
+        btn.dataset.index = i;
+        btn.addEventListener("click", () => {
+          currentQuestionIndex = i;
+          displayQuestion(currentQuestionIndex);
+          updateNavStatus();
+        });
+        questionNav.appendChild(btn);
+      }
+      updateNavStatus();
+    }
+
+    // Atualiza o status dos botões (resposta, ativo e marcado)
+    function updateNavStatus() {
+      document.querySelectorAll("#question-nav button").forEach(btn => {
+        let index = parseInt(btn.dataset.index);
+        btn.classList.remove("answered", "not-answered", "active", "marked");
+
+        // Verifica se o usuário respondeu algo
+        if (Array.isArray(userAnswers[index])) {
+          // Múltipla escolha: se tiver itens selecionados, está respondida
+          if (userAnswers[index].length > 0) {
+            btn.classList.add("answered");
+          } else {
+            btn.classList.add("not-answered");
+          }
+        } else {
+          // Resposta única: se userAnswers[index] for string não vazia
+          if (userAnswers[index]) {
+            btn.classList.add("answered");
+          } else {
+            btn.classList.add("not-answered");
+          }
+        }
+
+        // Botão ativo
+        if (index === currentQuestionIndex) {
+          btn.classList.add("active");
+        }
+        // Marcação de revisão
+        if (markedQuestions.includes(index)) {
+          btn.classList.add("marked");
+        }
+      });
+    }
+
+    // Exibe a questão atual
+    function displayQuestion(index) {
+      const question = examQuestions[index];
+      // Verifica se é múltipla escolha (answer é array) ou resposta única (string)
+      const isMultipleChoice = Array.isArray(question.answer);
+
+      let optionsHtml = "";
+      if (isMultipleChoice) {
+        // Exibe checkboxes
+        question.options.forEach(option => {
+          // Verifica se o userAnswers[index] (array) já contém a opção
+          let checked = (Array.isArray(userAnswers[index]) && userAnswers[index].includes(option)) ? "checked" : "";
+          optionsHtml += `<label>
+                            <input type="checkbox" name="option" value="${option}" ${checked}>
+                            ${option}
+                          </label>`;
+        });
+      } else {
+        // Exibe radios (resposta única)
+        question.options.forEach(option => {
+          const checked = (userAnswers[index] === option) ? "checked" : "";
+          optionsHtml += `<label>
+                            <input type="radio" name="option" value="${option}" ${checked}>
+                            ${option}
+                          </label>`;
+        });
+      }
+
+      questionContainer.innerHTML = `
+        <p><strong>Pergunta ${index + 1}:</strong> ${question.question}</p>
+        <div class="options">${optionsHtml}</div>
+      `;
+
+      // Registra a resposta e atualiza o status
+      if (isMultipleChoice) {
+        // Cada clique em checkbox atualiza userAnswers[index] como array
+        document.querySelectorAll('input[name="option"]').forEach(input => {
+          input.addEventListener("change", () => {
+            if (!Array.isArray(userAnswers[index])) {
+              userAnswers[index] = [];
+            }
+            if (input.checked) {
+              // Adiciona se não existir
+              if (!userAnswers[index].includes(input.value)) {
+                userAnswers[index].push(input.value);
+              }
+            } else {
+              // Remove se existir
+              userAnswers[index] = userAnswers[index].filter(val => val !== input.value);
+            }
+            updateNavStatus();
+          });
+        });
+      } else {
+        // Radios (resposta única)
+        document.querySelectorAll('input[name="option"]').forEach(input => {
+          input.addEventListener("change", () => {
+            userAnswers[index] = input.value;
+            updateNavStatus();
+          });
+        });
+      }
+    }
+
+    // Alterna a marcação para revisão
+    function toggleMarkQuestion() {
+      const index = currentQuestionIndex;
+      if (markedQuestions.includes(index)) {
+        markedQuestions = markedQuestions.filter(i => i !== index);
+      } else {
+        markedQuestions.push(index);
+      }
+      updateNavStatus();
+    }
+
+    // Avança para a próxima questão
+    function nextQuestion() {
+      if (currentQuestionIndex < totalQuestions - 1) {
+        currentQuestionIndex++;
+        displayQuestion(currentQuestionIndex);
+        updateNavStatus();
+      }
+    }
+
+    // Finaliza o exame e exibe o feedback de revisão
+    function finishExam() {
+      const unansweredCount = examQuestions.filter((q, i) => {
+        // Verifica se é múltipla ou única
+        if (Array.isArray(q.answer)) {
+          // Se userAnswers[i] for array e estiver vazio => não respondida
+          return !Array.isArray(userAnswers[i]) || userAnswers[i].length === 0;
+        } else {
+          // Resposta única => se userAnswers[i] estiver vazio => não respondida
+          return !userAnswers[i];
+        }
+      }).length;
+
+      let confirmMsg = unansweredCount > 0 
+        ? `Você tem ${unansweredCount} questão(ões) sem resposta. Deseja realmente finalizar o exame?`
+        : "Tem certeza que deseja finalizar o exame?";
+      if (!confirm(confirmMsg)) return;
+
+      clearInterval(examTimer);
+
+      let correctCount = 0;
+      let feedbackHtml = "";
+
+      examQuestions.forEach((question, i) => {
+        let userAnswer = userAnswers[i];
+        const correctAnswer = question.answer;  // pode ser string ou array
+        let isCorrect = false;
+
+        if (Array.isArray(correctAnswer)) {
+          // Múltipla escolha
+          if (Array.isArray(userAnswer)) {
+            // Verifica se o userAnswer tem o mesmo tamanho e os mesmos itens
+            isCorrect = (userAnswer.length === correctAnswer.length) &&
+                        userAnswer.every(val => correctAnswer.includes(val));
+          }
+          // Se userAnswer não for array, isCorrect permanece false
+          userAnswer = Array.isArray(userAnswer) && userAnswer.length > 0
+            ? userAnswer.join(", ")
+            : (userAnswer ? userAnswer : "Não respondida");
+        } else {
+          // Resposta única (string)
+          userAnswer = userAnswer || "Não respondida";
+          isCorrect = (userAnswer === correctAnswer);
+        }
+
+        if (isCorrect) correctCount++;
+
+        // Monta feedback
+        const correctAnsText = Array.isArray(correctAnswer)
+          ? correctAnswer.join(", ")
+          : correctAnswer;
+
+        feedbackHtml += `
+          <div class="feedback-item ${isCorrect ? "correct" : "incorrect"}">
+            <p><strong>Pergunta ${i + 1}:</strong> ${question.question}</p>
+            <p><strong>Sua resposta:</strong> ${userAnswer}</p>
+            <p><strong>Resposta correta:</strong> ${correctAnsText}</p>
+            <p><strong>Status:</strong> ${isCorrect ? "Correta" : "Incorreta"}</p>
+          </div>
+        `;
+      });
+
+      questionContainer.innerHTML = `
+        <h2>${translations[currentLang].examCompleted}</h2>
+        <p>${translations[currentLang].scoreText} ${correctCount} de ${totalQuestions}</p>
+        ${feedbackHtml}
+      `;
+      questionNav.innerHTML = "";
+      document.getElementById("controls").style.display = "none";
+    }
+
+    // Timer do exame
+    function startTimer(duration) {
+      let timeRemaining = duration;
+      examTimer = setInterval(() => {
+        const min = Math.floor(timeRemaining / 60);
+        const sec = timeRemaining % 60;
+        timerDisplay.textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        if (timeRemaining <= 0) {
+          finishExam();
+        }
+        timeRemaining--;
+      }, 1000);
+    }
+
+    // Eventos dos botões de controle
+    markButton.addEventListener("click", toggleMarkQuestion);
+    nextButton.addEventListener("click", nextQuestion);
+    finishButton.addEventListener("click", finishExam);
+
+    // Controle de alteração de URL
+    const changeUrlButton = document.getElementById("change-url-button");
+    const urlInput = document.getElementById("url-input");
+    changeUrlButton.addEventListener("click", () => {
+      urlInput.style.display = urlInput.style.display === "none" ? "block" : "none";
+    });
+    urlInput.addEventListener("change", () => {
+      const newUrl = urlInput.value;
+      if (newUrl) {
+        questionsUrl = newUrl;
+        loadExamQuestions(questionsUrl);
+        urlInput.style.display = "none";
+        alert(translations[currentLang].urlChangedAlert);
+      }
+    });
+
+    // Botão de troca de idioma
+    const languageToggleButton = document.getElementById("language-toggle-button");
+    languageToggleButton.addEventListener("click", () => {
+      if (currentLang === "pt") {
+        currentLang = "en";
+        questionsUrl = "https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions.json";
+      } else {
+        currentLang = "pt";
+        questionsUrl = "https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions_pt_br.json";
+      }
+      updateLanguageTexts();
+      loadExamQuestions(questionsUrl);
+    });
+
+    // Variável global para a URL das questões
+    let questionsUrl = urlInput.value;
+
+    // Inicializa textos, carrega as questões e inicia o timer
+    updateLanguageTexts();
+    loadExamQuestions(questionsUrl);
+    startTimer(examDuration);
+  </script>
+</body>
+</html>
