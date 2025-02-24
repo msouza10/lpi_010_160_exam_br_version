@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LPI Practice Exam</title>
+  <title>Exame de Prática LPI</title>
   <meta name="google-site-verification" content="tV0rZfI3rk4mmwRwxHmWxJ59Zf_ZrugOxKKV5BcNMos" />
-  <meta name="title" content="LPI Practice Exam" />
   <meta name="description" content="lpi linux essentials 010-160 practice exam." />
   <meta name="keywords" content="LPI,Linux essentials,Linux" />
   <meta name="robots" content="index, follow" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="language" content="English" />
+  <meta name="language" content="Português" />
   <meta name="author" content="Noam Alum" />
   <meta property="og:image" content="https://noam-alum.github.io/lpi_010_160_exam/hero.webp" />
   <link rel="icon" type="image/webp" href="https://noam-alum.github.io/lpi_010_160_exam/logo.webp" />
@@ -24,17 +23,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
+      min-height: 100vh;
     }
-
     h1 {
       text-align: center;
       margin: 20px 0;
       font-size: 2.5rem;
       color: #4caf50;
     }
-
-    .question-container {
+    .mode-container {
       background-color: white;
       width: 80%;
       max-width: 700px;
@@ -43,40 +41,17 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
-
-    .options {
-      margin: 10px 0;
+    .mode-container p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
     }
-
-    .option {
-      display: block;
-      margin: 8px 0;
-      font-size: 1.1rem;
+    .mode-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-
-    .result {
-      margin: 10px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      display: none;
-    }
-
-    .result.correct {
-      background-color: #e8f5e9;
-      border-color: #4caf50;
-    }
-
-    .result.incorrect {
-      background-color: #fce4e4;
-      border-color: #f44336;
-    }
-
-    .result span {
-      font-weight: bold;
-    }
-
     button {
       padding: 12px 20px;
       font-size: 1rem;
@@ -86,266 +61,66 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      margin: 5px;
     }
-
     button:hover {
       background-color: #45a049;
     }
-
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-
-    .results-container {
-      width: 80%;
-      max-width: 700px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    #retry-button {
-      display: none;
-    }
-
-    #change-url-button {
-      position: fixed;
-      bottom: 30px;
-      right: 20px;
-      background-color: #2196F3;
-      font-size: 1rem;
-    }
-
-    #change-url-button:hover {
-      background-color: #1976D2;
-    }
-
-    #url-input {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      padding: 10px;
-      font-size: 1rem;
-      width: 250px;
-      display: none;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    
-    /* Estilo para o botão de troca de idioma */
     #language-toggle-button {
-      margin-top: 10px;
+      margin-top: 20px;
+    }
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1><a style="text-decoration: none; color: inherit" href="https://github.com/Noam-Alum/lpi_010_160_exam">LPI Practice Exam</a></h1>
-  <p>By Noam Alum</p>
-  <div id="question-container" class="question-container"></div>
-  <div id="results-container" class="results-container"></div>
-  <button id="end-test-button">End Test</button>
-  <div id="results" class="results"></div>
-  <button id="retry-button">Retry Test</button>
-  <button id="change-url-button">Change Questions URL</button>
-  <input type="text" id="url-input" value="https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions_pt_br.json" placeholder="Enter new URL" />
-  <!-- Botão para troca de idioma -->
-  <button id="language-toggle-button">Switch to English</button>
-
+  <h1 id="page-title">Exame de Prática LPI</h1>
+  <div class="mode-container">
+    <p id="choose-mode">Escolha o modo:</p>
+    <div class="mode-buttons">
+      <a href="exam-mode.html"><button id="exam-mode-button">Modo Exame</button></a>
+      <a href="prac-mode.html"><button id="prac-mode-button">Modo Prática</button></a>
+    </div>
+    <button id="language-toggle-button">Switch to English</button>
+  </div>
   <script>
-    // URL padrão: se houver query string, utiliza a URL passada; caso contrário, inicia com português
-    let questionsUrl = new URLSearchParams(window.location.search).get('questions-url') || "https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions_pt_br.json";
-
-    // Função para carregar as questões da URL informada
-    async function fetchQuestions(url) {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-      } catch (error) {
-        alert("Failed to load questions. Please try again later.");
-        return [];
+    const translations = {
+      en: {
+        htmlLang: "en",
+        title: "LPI Practice Exam",
+        chooseMode: "Choose your mode:",
+        examMode: "Exam Mode",
+        practiceMode: "Practice Mode",
+        switchLanguage: "Switch to Português"
+      },
+      pt: {
+        htmlLang: "pt",
+        title: "Exame de Prática LPI",
+        chooseMode: "Escolha o modo:",
+        examMode: "Modo Exame",
+        practiceMode: "Modo Prática",
+        switchLanguage: "Switch to English"
       }
+    };
+
+    let currentLang = "pt";
+
+    function updateLanguageTexts() {
+      document.documentElement.lang = translations[currentLang].htmlLang;
+      document.getElementById("page-title").textContent = translations[currentLang].title;
+      document.getElementById("choose-mode").textContent = translations[currentLang].chooseMode;
+      document.getElementById("exam-mode-button").textContent = translations[currentLang].examMode;
+      document.getElementById("prac-mode-button").textContent = translations[currentLang].practiceMode;
+      document.getElementById("language-toggle-button").textContent = translations[currentLang].switchLanguage;
+      document.querySelector('meta[name="language"]').setAttribute("content", currentLang === "pt" ? "Português" : "English");
     }
 
-    // Variáveis globais do exame
-    let correctAnswers = 0;
-    let askedQuestions = [];
-    let totalQuestions = 0;
-    let LPI_QUESTIONS_DATA = [];
-
-    const questionContainer = document.getElementById("question-container");
-    const resultsContainer = document.getElementById("results-container");
-    const endTestButton = document.getElementById("end-test-button");
-    const retryButton = document.getElementById("retry-button");
-    const changeUrlButton = document.getElementById("change-url-button");
-    const urlInput = document.getElementById("url-input");
-    const languageToggleButton = document.getElementById("language-toggle-button");
-
-    // Inicia o exame com as questões carregadas
-    async function startExam() {
-      correctAnswers = 0;
-      askedQuestions = [];
-      resultsContainer.innerHTML = '';  // Limpa resultados anteriores
-      retryButton.style.display = "none"; // Esconde o botão de retry
-      questionContainer.style.display = "block";  // Mostra o container de questões
-      endTestButton.style.display = "inline-block";  // Mostra o botão de finalizar
-
-      LPI_QUESTIONS_DATA = await fetchQuestions(questionsUrl);
-      totalQuestions = LPI_QUESTIONS_DATA.length;
-      if (totalQuestions === 0) {
-        resultsContainer.innerHTML = "<p>No questions available.</p>";
-        return;
-      }
-      displayQuestion();
-    }
-
-    function displayQuestion() {
-      if (askedQuestions.length === totalQuestions) {
-        showResults();
-        return;
-      }
-
-      // Limpa resultados anteriores
-      resultsContainer.innerHTML = '';
-
-      // Seleciona uma questão aleatória ainda não exibida
-      let randomIndex;
-      do {
-        randomIndex = Math.floor(Math.random() * totalQuestions);
-      } while (askedQuestions.includes(randomIndex));
-      askedQuestions.push(randomIndex);
-
-      const questionData = LPI_QUESTIONS_DATA[randomIndex];
-      const questionText = questionData.question;
-      const options = questionData.options;
-      const correctAnswersArray = questionData.answer;
-
-      const isMultipleChoice = correctAnswersArray.length > 1;
-
-      // Renderiza a questão e as opções (radio para única resposta, checkbox para múltiplas respostas)
-      questionContainer.innerHTML = 
-        `<p><strong>Question:</strong> ${questionText}</p>
-         <div class="options">
-           ${options.map((option, index) => 
-              isMultipleChoice ? 
-                `<label class="option"><input type="checkbox" name="option" value="${option}" data-index="${index}" class="checkbox"> ${option}</label>` :
-                `<label class="option"><input type="radio" name="option" value="${option}" data-index="${index}" class="radio"> ${option}</label>`
-           ).join('')}
-         </div>
-         <button id="submit-answer-button" disabled>Submit Answer</button>`;
-
-      const inputs = document.querySelectorAll('input[name="option"]');
-      const submitButton = document.getElementById("submit-answer-button");
-
-      inputs.forEach(input => {
-        input.addEventListener("change", function() {
-          const selectedInputs = document.querySelectorAll('input[name="option"]:checked');
-          if (isMultipleChoice) {
-            submitButton.disabled = selectedInputs.length !== correctAnswersArray.length;
-          } else {
-            submitButton.disabled = selectedInputs.length === 0;
-          }
-        });
-      });
-
-      // Gerencia o clique do botão para submeter e avançar
-      submitButton.addEventListener("click", function handler() {
-        if (submitButton.innerText === "Submit Answer") {
-          const selectedAnswers = Array.from(inputs)
-            .filter(input => input.checked)
-            .map(input => input.value);
-
-          const resultContainer = document.createElement("div");
-          resultContainer.classList.add("result");
-
-          const formattedAnswers = correctAnswersArray.map(answer => `<li>${answer}</li>`).join('');
-
-          if (isMultipleChoice) {
-            if (selectedAnswers.length === correctAnswersArray.length &&
-                selectedAnswers.every(answer => correctAnswersArray.includes(answer))) {
-              correctAnswers++;
-              resultContainer.classList.add("correct");
-              resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
-            } else {
-              resultContainer.classList.add("incorrect");
-              resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
-            }
-          } else {
-            const selectedAnswer = selectedAnswers[0];
-            if (correctAnswersArray.includes(selectedAnswer)) {
-              correctAnswers++;
-              resultContainer.classList.add("correct");
-              resultContainer.innerHTML = `Correct! <ul>${formattedAnswers}</ul>`;
-            } else {
-              resultContainer.classList.add("incorrect");
-              resultContainer.innerHTML = `Incorrect. <ul>${formattedAnswers}</ul>`;
-            }
-          }
-
-          resultsContainer.appendChild(resultContainer);
-          resultContainer.style.display = "block";
-
-          // Altera o texto do botão para avançar
-          submitButton.innerText = "Next Question";
-          inputs.forEach(input => input.disabled = true);
-        } else {
-          submitButton.removeEventListener("click", handler);
-          displayQuestion();
-        }
-      });
-    }
-
-    function showResults() {
-      questionContainer.style.display = "none";
-      endTestButton.style.display = "none";
-
-      resultsContainer.innerHTML += 
-        `<p>You have completed the exam!</p>
-         <p>Your score: ${correctAnswers} out of ${totalQuestions}</p>`;
-      retryButton.style.display = "inline-block";
-    }
-
-    // Evento para finalizar o teste
-    endTestButton.addEventListener("click", function() {
-      showResults();
+    document.getElementById("language-toggle-button").addEventListener("click", function() {
+      currentLang = currentLang === "pt" ? "en" : "pt";
+      updateLanguageTexts();
     });
 
-    // Evento para reiniciar o teste
-    retryButton.addEventListener("click", function() {
-      startExam();
-    });
-
-    // Alterna a visibilidade do input para alteração da URL
-    changeUrlButton.addEventListener("click", function() {
-      urlInput.style.display = urlInput.style.display === "none" ? "block" : "none";
-    });
-
-    // Atualiza a URL de questões quando o input sofre alteração
-    urlInput.addEventListener("change", function() {
-      const newUrl = urlInput.value;
-      if (newUrl) {
-        questionsUrl = newUrl;
-        startExam();
-        urlInput.style.display = "none";
-        alert("URL changed. The exam will now use the new questions.");
-      }
-    });
-
-    // Botão para troca de idioma: alterna entre português e inglês
-    languageToggleButton.addEventListener("click", function() {
-      if (questionsUrl.includes("pt_br")) {
-        questionsUrl = "https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions.json";
-        languageToggleButton.innerText = "Switch to Português";
-      } else {
-        questionsUrl = "https://raw.githubusercontent.com/msouza10/lpi_010_160_exam_br_version/refs/heads/main/lpi/lpi_questions_pt_br.json";
-        languageToggleButton.innerText = "Switch to English";
-      }
-      startExam();
-    });
-
-    // Inicia o exame ao carregar a página
-    startExam();
+    updateLanguageTexts();
   </script>
 </body>
 </html>
